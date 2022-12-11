@@ -18,12 +18,20 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         ProcessInputs();
+    }
+
+    void FixedUpdate()
+    {
         Move();
     }
 
     void ProcessInputs()
     {
-        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        float MoveX = Input.GetAxisRaw("Horizontal");
+        float MoveY = Input.GetAxisRaw("Vertical");
+
+        input = new Vector2(MoveX, MoveY);
+        input.Normalize();
     }
 
     void Move()
