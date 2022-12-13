@@ -10,13 +10,11 @@ public class TrashSpawner : MonoBehaviour
     [SerializeField] private GameObject[] legendaryTrash;
 
     public int maxTrash;
-    private float numberOfTrash;
-    [SerializeField] private float k;
-    [SerializeField] private float spawnInterval;
+    private float trashToSpawn;
+    private float currentBeachTrash = 0;
 
+    [SerializeField] private float spawnInterval;
     private float timer = 0;
-    private float permTimer = 0;
-    private float previousSpawnNumber = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -27,25 +25,23 @@ public class TrashSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        permTimer += Time.deltaTime;
-        numberOfTrash = (maxTrash - maxTrash * Mathf.Exp(k * permTimer));
-
         timer += Time.deltaTime;
         if(timer > spawnInterval)
         {
-            for (int i = 0; i < numberOfTrash - previousSpawnNumber; i++)
+            trashToSpawn = 0.2f * (maxTrash - currentBeachTrash);
+            for (int i = 0; i < trashToSpawn; i++)
             {
                 SpawnPieceOfTrash();
             }
-            previousSpawnNumber = numberOfTrash;
-            timer = timer % 3;
+            currentBeachTrash += trashToSpawn;
+            timer = timer % spawnInterval;
         }
     }
 
     /*
     void onWaveAnimationPlay()
     {
-        for(int i = 0; i < numberOfTrashThisTime; i++) {
+        for(int i = 0; i < trashToSpawnThisTime; i++) {
             SpawnPieceOfTrash();
         }
     }
@@ -59,8 +55,8 @@ public class TrashSpawner : MonoBehaviour
             int rand2 = Random.Range(0, commonTrash.Length);
             GameObject temp = Instantiate(commonTrash[rand2], transform);
 
-            float rand3 = Random.Range(-10, 0);
-            float rand4 = Random.Range(-50, 50);
+            float rand3 = Random.Range(-10f, 0f);
+            float rand4 = Random.Range(-50f, 50f);
             temp.transform.position += new Vector3(rand3, rand4, 0);
         }
         /*
