@@ -8,13 +8,20 @@ public class PlayerMove : MonoBehaviour
     private Vector2 input;
     private Rigidbody2D rb;
 
-    // Start is called before the first frame update
-    void Start()
+    private InventorySystem inventory;
+    [SerializeField] private UI_Inventory uiInventory;
+
+
+    
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        inventory = new InventorySystem();
+        uiInventory.SetInventory(inventory);
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         ProcessInputs();
@@ -25,6 +32,21 @@ public class PlayerMove : MonoBehaviour
         Move();
     }
 
+
+    //pickup
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Touching");
+        ItemWorld itemWorld = collision.GetComponent<ItemWorld>();
+        if(itemWorld != null)
+        {
+            inventory.addItem(itemWorld.getItem());
+            itemWorld.DestroySelf();
+        }
+    }
+
+
+    //movement
     void ProcessInputs()
     {
         float MoveX = Input.GetAxisRaw("Horizontal");
@@ -33,7 +55,6 @@ public class PlayerMove : MonoBehaviour
         input = new Vector2(MoveX, MoveY);
         input.Normalize();
     }
-
     void Move()
     {
         rb.velocity = input * moveSpeed;

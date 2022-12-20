@@ -5,9 +5,9 @@ using UnityEngine;
 public class TrashSpawner : MonoBehaviour
 {
 
-    [SerializeField] private GameObject[] commonTrash;
-    [SerializeField] private GameObject[] rareTrash;
-    [SerializeField] private GameObject[] legendaryTrash;
+    [SerializeField] private Item[] commonTrash;
+    [SerializeField] private Item[] rareTrash;
+    [SerializeField] private Item[] legendaryTrash;
 
     public int maxTrash;
     private float trashToSpawn;
@@ -38,26 +38,14 @@ public class TrashSpawner : MonoBehaviour
         }
     }
 
-    /*
-    void onWaveAnimationPlay()
-    {
-        for(int i = 0; i < trashToSpawnThisTime; i++) {
-            SpawnPieceOfTrash();
-        }
-    }
-     */
-
     void SpawnPieceOfTrash()
     {
         float rand1 = Random.Range(0f, 1f);
         if(rand1 < 0.95)
         {
             int rand2 = Random.Range(0, commonTrash.Length);
-            GameObject temp = Instantiate(commonTrash[rand2], transform);
+            ItemWorld.SpawnItemWorld(new Vector3(Random.Range(-45f, -35f), Random.Range(-50f, 50f)), commonTrash[rand2]);
 
-            float rand3 = Random.Range(-10f, 0f);
-            float rand4 = Random.Range(-50f, 50f);
-            temp.transform.position += new Vector3(rand3, rand4, 0);
         }
         /*
         else if(rand1 < 0.999)

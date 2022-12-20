@@ -1,21 +1,47 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventorySystem : MonoBehaviour
+public class InventorySystem
 {
+    public event EventHandler OnItemListChanged;
 
+    private List<Item> itemList;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public InventorySystem()
     {
-        
+        itemList = new List<Item>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void addItem(Item item)
     {
-        
+        if(item.isStackable())
+        {
+            bool itemAlreadyInInventory = false;
+            foreach(Item inventoryItem in itemList)
+            {
+                if(inventoryItem.itemType == item.itemType)
+                {
+                    inventoryItem.amount += 1;
+                    itemAlreadyInInventory = true;
+                }
+            }
+            if(!itemAlreadyInInventory)
+            {
+                itemList.Add(item);
+            }
+        }
+        else
+        {
+            itemList.Add(item);
+        }
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public List<Item> getItemList()
+    {
+        return itemList;
     }
 }
