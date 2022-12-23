@@ -10,10 +10,21 @@ public class UI_Inventory : MonoBehaviour
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
 
+    private Transform ui_WeightCounter;
+    private Transform weightNumber_Container;
+    private Transform weightTop_text;
+    private Transform weightBottom_text;
+
+
     public void Awake()
     {
         itemSlotContainer = transform.Find("ItemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("ItemSlotTemplate");
+
+        ui_WeightCounter = transform.Find("UI_WeightCounter");
+        weightNumber_Container = ui_WeightCounter.Find("WeightNumber_Container");
+        weightTop_text = weightNumber_Container.Find("WeightTop_text");
+        weightBottom_text = weightNumber_Container.Find("WeightBottom_text");
     }
 
     public void SetInventory(InventorySystem inventory)
@@ -32,12 +43,12 @@ public class UI_Inventory : MonoBehaviour
 
     private void RefreshInventoryItems()
     {
+        //inventory interface
         foreach(Transform child in itemSlotContainer)
         {
             if (child == itemSlotTemplate) continue;
             Destroy(child.gameObject);
         }
-
         int x = 0;
         int y = 0;
         float itemSlotCellSize = 125f;
@@ -67,6 +78,12 @@ public class UI_Inventory : MonoBehaviour
             }
             
         }
+
+
+        //weight counter
+        TextMeshProUGUI currentWeightText = weightTop_text.GetComponent<TextMeshProUGUI>();
+        currentWeightText.SetText(inventory.getCurrentWeight().ToString()); 
+
     }
 
 }

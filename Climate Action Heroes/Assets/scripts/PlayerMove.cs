@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour
 
     private InventorySystem inventory;
     [SerializeField] private UI_Inventory uiInventory;
-
+    [SerializeField] private float maxWeight;
 
     
     void Awake()
@@ -32,6 +32,11 @@ public class PlayerMove : MonoBehaviour
         Move();
     }
 
+    public float getMaxWeight()
+    {
+        return maxWeight;
+    }
+
 
     //pickup
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,8 +45,11 @@ public class PlayerMove : MonoBehaviour
         ItemWorld itemWorld = collision.GetComponent<ItemWorld>();
         if(itemWorld != null)
         {
-            inventory.addItem(itemWorld.getItem());
-            itemWorld.DestroySelf();
+            if(inventory.getCurrentWeight() + itemWorld.getItem().getWeight() <= maxWeight)
+            {
+                inventory.addItem(itemWorld.getItem());
+                itemWorld.DestroySelf();
+            }
         }
     }
 

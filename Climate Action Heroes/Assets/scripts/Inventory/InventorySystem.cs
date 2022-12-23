@@ -8,6 +8,7 @@ public class InventorySystem
     public event EventHandler OnItemListChanged;
 
     private List<Item> itemList;
+    private float currentWeight;
 
     public InventorySystem()
     {
@@ -43,5 +44,17 @@ public class InventorySystem
     public List<Item> getItemList()
     {
         return itemList;
+    }
+
+    public float getCurrentWeight()
+    {
+        currentWeight = 0;
+        foreach(Item inventoryItem in itemList)
+        {
+            float temp = inventoryItem.getWeight();
+            temp *= inventoryItem.amount;
+            currentWeight += temp;
+        }
+        return currentWeight;
     }
 }
