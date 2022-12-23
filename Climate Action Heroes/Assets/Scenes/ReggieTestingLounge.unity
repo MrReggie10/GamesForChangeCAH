@@ -3847,7 +3847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   uiInventory: {fileID: 1334666462}
-  maxWeight: 100
+  maxWeight: 25
 --- !u!1 &1912166027
 GameObject:
   m_ObjectHideFlags: 0

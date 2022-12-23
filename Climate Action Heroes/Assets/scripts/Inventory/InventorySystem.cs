@@ -9,6 +9,7 @@ public class InventorySystem
 
     private List<Item> itemList;
     private float currentWeight;
+    private float maxWeight;
 
     public InventorySystem()
     {
@@ -56,5 +57,15 @@ public class InventorySystem
             currentWeight += temp;
         }
         return currentWeight;
+    }
+
+    public float getMaxWeight()
+    {
+        return maxWeight;
+    }
+
+    public void setMaxWeight(float max)
+    {
+        maxWeight = max;
     }
 }

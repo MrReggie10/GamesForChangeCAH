@@ -82,7 +82,10 @@ public class UI_Inventory : MonoBehaviour
 
         //weight counter
         TextMeshProUGUI currentWeightText = weightTop_text.GetComponent<TextMeshProUGUI>();
-        currentWeightText.SetText(inventory.getCurrentWeight().ToString()); 
+        currentWeightText.SetText(inventory.getCurrentWeight().ToString());
+
+        TextMeshProUGUI maxWeightText = weightBottom_text.GetComponent<TextMeshProUGUI>();
+        maxWeightText.SetText(inventory.getMaxWeight().ToString());
 
     }
 

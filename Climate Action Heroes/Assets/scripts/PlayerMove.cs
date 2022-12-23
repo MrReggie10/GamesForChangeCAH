@@ -18,7 +18,10 @@ public class PlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         inventory = new InventorySystem();
+        inventory.setMaxWeight(maxWeight);
         uiInventory.SetInventory(inventory);
+
+        
 
     }
 
@@ -32,11 +35,6 @@ public class PlayerMove : MonoBehaviour
         Move();
     }
 
-    public float getMaxWeight()
-    {
-        return maxWeight;
-    }
-
 
     //pickup
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,7 +43,7 @@ public class PlayerMove : MonoBehaviour
         ItemWorld itemWorld = collision.GetComponent<ItemWorld>();
         if(itemWorld != null)
         {
-            if(inventory.getCurrentWeight() + itemWorld.getItem().getWeight() <= maxWeight)
+            if(inventory.getCurrentWeight() + itemWorld.getItem().getWeight() <= inventory.getMaxWeight())
             {
                 inventory.addItem(itemWorld.getItem());
                 itemWorld.DestroySelf();
