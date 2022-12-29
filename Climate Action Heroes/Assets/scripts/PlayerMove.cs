@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
 
     private InventorySystem inventory;
     [SerializeField] private UI_Inventory uiInventory;
+    [SerializeField] private TrashSpawner trashSpawner;
     [SerializeField] private float maxWeight;
 
     
@@ -47,6 +48,7 @@ public class PlayerMove : MonoBehaviour
             {
                 inventory.addItem(itemWorld.getItem());
                 itemWorld.DestroySelf();
+                trashSpawner.changeCurrentBeachTrash();
             }
         }
     }

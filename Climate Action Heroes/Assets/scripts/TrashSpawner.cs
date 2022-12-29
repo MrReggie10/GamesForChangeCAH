@@ -63,4 +63,9 @@ public class TrashSpawner : MonoBehaviour
         }
         */
     }
+
+    public void changeCurrentBeachTrash()
+    {
+        currentBeachTrash--;
+    }
 }
