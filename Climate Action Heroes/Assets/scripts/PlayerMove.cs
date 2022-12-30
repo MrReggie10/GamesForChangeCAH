@@ -8,22 +8,11 @@ public class PlayerMove : MonoBehaviour
     private Vector2 input;
     private Rigidbody2D rb;
 
-    private InventorySystem inventory;
-    [SerializeField] private UI_Inventory uiInventory;
-    [SerializeField] private TrashSpawner trashSpawner;
-    [SerializeField] private float maxWeight;
+    [SerializeField] private MainManager mM;
 
-    
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        inventory = new InventorySystem();
-        inventory.setMaxWeight(maxWeight);
-        uiInventory.SetInventory(inventory);
-
-        
-
     }
 
     void Update()
@@ -41,16 +30,7 @@ public class PlayerMove : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Touching");
-        ItemWorld itemWorld = collision.GetComponent<ItemWorld>();
-        if(itemWorld != null)
-        {
-            if(inventory.getCurrentWeight() + itemWorld.getItem().getWeight() <= inventory.getMaxWeight())
-            {
-                inventory.addItem(itemWorld.getItem());
-                itemWorld.DestroySelf();
-                trashSpawner.changeCurrentBeachTrash();
-            }
-        }
+        mM.itemCollision(collision);
     }
 
 
