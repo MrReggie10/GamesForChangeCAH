@@ -6,10 +6,7 @@ public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
 
-    private InventorySystem inventory;
-    [SerializeField] private UI_Inventory uiInventory;
-    [SerializeField] private TrashSpawner trashSpawner;
-    [SerializeField] private float maxWeight;
+    
 
     private void Awake()
     {
@@ -24,22 +21,7 @@ public class MainManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        inventory = new InventorySystem();
-        inventory.setMaxWeight(maxWeight);
-        uiInventory.SetInventory(inventory);
+        
     }
 
-    public void itemCollision(Collider2D collision)
-    {
-        ItemWorld itemWorld = collision.GetComponent<ItemWorld>();
-        if (itemWorld != null)
-        {
-            if (inventory.getCurrentWeight() + itemWorld.getItem().getWeight() <= inventory.getMaxWeight())
-            {
-                inventory.addItem(itemWorld.getItem());
-                itemWorld.DestroySelf();
-                trashSpawner.changeCurrentBeachTrash();
-            }
-        }
-    }
 }
