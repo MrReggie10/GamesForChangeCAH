@@ -7,6 +7,7 @@ using TMPro;
 public class UI_Inventory : MonoBehaviour
 {
     private InventorySystem inventory;
+    private Transform inventory_BG;
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
 
@@ -14,7 +15,8 @@ public class UI_Inventory : MonoBehaviour
 
     public void Awake()
     {
-        itemSlotContainer = transform.Find("ItemSlotContainer");
+        inventory_BG = transform.Find("Inventory_BG");
+        itemSlotContainer = inventory_BG.Find("ItemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("ItemSlotTemplate");
     }
 
