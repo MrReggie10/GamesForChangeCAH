@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
-    public GameObject dialoguePanel;
-    public Text dialogueText;
-    public string[] dialogue;
+    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private Text dialogueText;
+    [SerializeField] private string[] dialogue;
     private int index;
 
-    public GameObject contButton;
+    [SerializeField] private GameObject contButton;
     private bool keepTyping = true;
-    public float wordSpeed;
-    public bool playerIsClose;
-    public bool endLineEarly = false;
+    [SerializeField] private float wordSpeed;
+    [SerializeField] private bool playerIsClose;
+    [SerializeField] private bool endLineEarly = false;
 
     // Update is called once per frame
     void Update()

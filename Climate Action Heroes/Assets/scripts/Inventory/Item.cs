@@ -61,4 +61,35 @@ public class Item
                 return 1.0f;
         }
     }
+
+    public int getSell()
+    {
+        switch (itemType)
+        {
+            default:
+            case ItemType.cigarette:
+                return 1;
+            case ItemType.plastic_bag:
+                return 5;
+            case ItemType.plastic_bottle:
+                return 10;
+            case ItemType.glass_bottle:
+                return 10;
+        }
+    }
+
+    public static int getBuy(ItemType itemType)
+    {
+        switch (itemType)
+        {
+            default:
+            case ItemType.plastic_bag:
+                return 10;
+            case ItemType.plastic_bottle:
+                return 15;
+            case ItemType.glass_bottle:
+                return 15;
+        }
+
+    }
 }
