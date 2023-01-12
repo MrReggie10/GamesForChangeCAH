@@ -8,6 +8,7 @@ public class UIShop : MonoBehaviour
 {
     private Transform container;
     private Transform button;
+    private IShopCustomer shopCustomer;
 
     private void Awake()
     {
@@ -21,6 +22,8 @@ public class UIShop : MonoBehaviour
         CreateItemButton(Item.ItemType.glass_bottle, ItemAssets.Instance.glassBottle, "Glass Bottle", Item.getBuy(Item.ItemType.glass_bottle));
         CreateItemButton(Item.ItemType.plastic_bag, ItemAssets.Instance.plasticBag, "Plastic Bag", Item.getBuy(Item.ItemType.plastic_bag));
         CreateItemButton(Item.ItemType.plastic_bottle, ItemAssets.Instance.plasticBottle, "Plastic Bottle", Item.getBuy(Item.ItemType.plastic_bottle));
+
+        Hide();
     }
 
     private void CreateItemButton(Item.ItemType type, Sprite itemSprite, string itemName, int itemCost)
@@ -32,5 +35,21 @@ public class UIShop : MonoBehaviour
         buttonTransform.Find("ItemCost").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
 
         button.transform.Find("ItemIcon").GetComponent<Image>().sprite = itemSprite;
+    }
+
+    private void TryBuyItem(Item.ItemType itemType)
+    {
+        shopCustomer.BoughtItem(itemType);
+    }
+
+    public void Show(IShopCustomer shopCustomer)
+    {
+        this.shopCustomer = shopCustomer;
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

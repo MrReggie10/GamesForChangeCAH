@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : MonoBehaviour, IShopCustomer
 {
     [SerializeField] private float moveSpeed;
     private Vector2 input;
@@ -61,5 +61,10 @@ public class PlayerMove : MonoBehaviour
     void Move()
     {
         rb.velocity = input * moveSpeed;
+    }
+
+    public void BoughtItem(Item.ItemType itemType)
+    {
+        Debug.Log("Bought Item: " + itemType);
     }
 }
