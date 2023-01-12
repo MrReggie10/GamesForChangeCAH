@@ -62,6 +62,22 @@ public class Item
         }
     }
 
+    public static float getWeight(ItemType itemType)
+    {
+        switch (itemType)
+        {
+            default:
+            case ItemType.cigarette:
+                return 0.1f;
+            case ItemType.plastic_bag:
+                return 0.2f;
+            case ItemType.plastic_bottle:
+                return 0.5f;
+            case ItemType.glass_bottle:
+                return 1.0f;
+        }
+    }
+
     public int getSell()
     {
         switch (itemType)

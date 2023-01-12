@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour, IShopCustomer
 {
+    [SerializeField] private int cash;
+
     [SerializeField] private float moveSpeed;
     private Vector2 input;
     private Rigidbody2D rb;
@@ -12,6 +15,8 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
     [SerializeField] private UI_Inventory uiInventory;
     [SerializeField] private TrashSpawner trashSpawner;
     [SerializeField] private float maxWeight;
+
+    public event EventHandler OnCashAmountChanged;
 
     void Awake()
     {
@@ -63,8 +68,40 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         rb.velocity = input * moveSpeed;
     }
 
+
+    //buying items
     public void BoughtItem(Item.ItemType itemType)
     {
-        Debug.Log("Bought Item: " + itemType);
+        Item item = new Item();
+        item.itemType = itemType;
+        item.amount = 1;
+
+        inventory.addItem(item);
+    }
+
+    bool IShopCustomer.TrySpendCashAmount(int spendCashAmount)
+    {
+        if(cash >= spendCashAmount)
+        {
+            cash -= spendCashAmount;
+            OnCashAmountChanged?.Invoke(this, EventArgs.Empty);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool IShopCustomer.TryFitWeight(float weight)
+    {
+        if(inventory.getCurrentWeight() + weight <= maxWeight)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

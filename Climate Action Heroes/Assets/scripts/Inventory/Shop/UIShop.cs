@@ -35,11 +35,20 @@ public class UIShop : MonoBehaviour
         buttonTransform.Find("ItemCost").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
 
         button.transform.Find("ItemIcon").GetComponent<Image>().sprite = itemSprite;
+
+        buttonTransform.GetComponent<Button>().onClick.AddListener(delegate { TryBuyItem(type); });
     }
 
-    private void TryBuyItem(Item.ItemType itemType)
+    public void TryBuyItem(Item.ItemType itemType)
     {
-        shopCustomer.BoughtItem(itemType);
+        if(shopCustomer.TryFitWeight(Item.getWeight(itemType)))
+        {
+            if (shopCustomer.TrySpendCashAmount(Item.getBuy(itemType)))
+            {
+                shopCustomer.BoughtItem(itemType);
+            }
+        }
+        
     }
 
     public void Show(IShopCustomer shopCustomer)

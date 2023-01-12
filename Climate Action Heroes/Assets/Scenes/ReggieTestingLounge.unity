@@ -1836,6 +1836,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5427508251539131572, guid: 193518cc4169c4ffab031b9afef3ebbc, type: 3}
+      propertyPath: commonTrash.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427508251539131572, guid: 193518cc4169c4ffab031b9afef3ebbc, type: 3}
+      propertyPath: commonTrash.Array.data[4].amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427508251539131572, guid: 193518cc4169c4ffab031b9afef3ebbc, type: 3}
+      propertyPath: commonTrash.Array.data[4].itemType
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5427508251539131573, guid: 193518cc4169c4ffab031b9afef3ebbc, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -4739,6 +4751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25d40945f195476fb707e3313793ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cash: 99999
   moveSpeed: 5
   uiInventory: {fileID: 574613739}
   trashSpawner: {fileID: 574613738}
