@@ -2429,6 +2429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiShop: {fileID: 1007574425}
+  uiInventory: {fileID: 574613739}
 --- !u!61 &819682420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4723,7 +4724,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &1895766050

@@ -13,11 +13,18 @@ public class UI_Inventory : MonoBehaviour
 
     [SerializeField] private UI_WeightCounter weightCounter;
 
+    private IShopCustomer shopCustomer;
+
     public void Awake()
     {
         inventory_BG = transform.Find("Inventory_BG");
         itemSlotContainer = inventory_BG.Find("ItemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("ItemSlotTemplate");
+    }
+
+    private void Start()
+    {
+        Hide();
     }
 
     public void SetInventory(InventorySystem inventory)
@@ -61,6 +68,17 @@ public class UI_Inventory : MonoBehaviour
         }
 
         weightCounter.Refresh(inventory);
+    }
+
+    public void Show(IShopCustomer shopCustomer)
+    {
+        this.shopCustomer = shopCustomer;
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 
 }

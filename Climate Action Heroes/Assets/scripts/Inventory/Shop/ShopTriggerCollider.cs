@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShopTriggerCollider : MonoBehaviour
 {
     [SerializeField] private UIShop uiShop;
+    [SerializeField] private UI_Inventory uiInventory;
     private bool shopOpen = false;
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -14,9 +15,8 @@ public class ShopTriggerCollider : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("trigger working");
-
                 uiShop.Show(shopCustomer);
+                uiInventory.Show(shopCustomer);
                 shopOpen = true;
             }
         }
@@ -29,6 +29,7 @@ public class ShopTriggerCollider : MonoBehaviour
         if(Input.GetKeyDown("escape"))
         {
             uiShop.Hide();
+            uiInventory.Hide();
         }
     }
 
