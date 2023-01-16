@@ -1960,6 +1960,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42289585a877544cc9604258f9e3400d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &574613740 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4644571035687261463, guid: 193518cc4169c4ffab031b9afef3ebbc, type: 3}
+  m_PrefabInstance: {fileID: 574613737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b3f77822f5cd4e149f32e19297231b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &574613741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5385897984842984100, guid: 193518cc4169c4ffab031b9afef3ebbc, type: 3}
+  m_PrefabInstance: {fileID: 574613737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33aefc8aed8254ed9b2e5fad05395861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &600208893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,8 +2444,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819682417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14, y: 14, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: -14, y: 13, z: 0}
+  m_LocalScale: {x: 3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1247898054}
   m_RootOrder: 0
@@ -2442,6 +2464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiShop: {fileID: 1007574425}
   uiInventory: {fileID: 574613739}
+  uiSell: {fileID: 574613740}
 --- !u!61 &819682420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4751,10 +4774,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25d40945f195476fb707e3313793ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cash: 99999
+  cash: 100
   moveSpeed: 5
   uiInventory: {fileID: 574613739}
   trashSpawner: {fileID: 574613738}
+  uiCashAmount: {fileID: 574613741}
   maxWeight: 20
 --- !u!1 &1912166027
 GameObject:

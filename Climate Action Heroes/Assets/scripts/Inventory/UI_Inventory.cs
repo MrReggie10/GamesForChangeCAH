@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class UI_Inventory : MonoBehaviour
     private Transform itemSlotTemplate;
 
     [SerializeField] private UI_WeightCounter weightCounter;
+    [SerializeField] private UIShopSell uiShopSell;
 
     private IShopCustomer shopCustomer;
 
@@ -49,25 +51,38 @@ public class UI_Inventory : MonoBehaviour
             if (child == itemSlotTemplate) continue;
             Destroy(child.gameObject);
         }
-        foreach (Item item in inventory.getItemList())
+        for(int refreshCounter = 0; refreshCounter < inventory.getItemList().Count; refreshCounter++)
         {
-            RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
+            Transform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer);
             itemSlotRectTransform.gameObject.SetActive(true);
 
             Image image = itemSlotRectTransform.Find("Slot_Image").GetComponent<Image>();
-            image.sprite = item.getSprite();
+            image.sprite = inventory.getItemList()[refreshCounter].getSprite();
             TextMeshProUGUI uiText = itemSlotRectTransform.Find("text").GetComponent<TextMeshProUGUI>();
-            if(item.amount > 1)
+            if (inventory.getItemList()[refreshCounter].amount > 1)
             {
-                uiText.SetText(item.amount.ToString());
+                uiText.SetText(inventory.getItemList()[refreshCounter].amount.ToString());
             }
             else
             {
                 uiText.SetText("");
             }
+
+            //button checks for click
+            MarkButton(itemSlotRectTransform, refreshCounter);
         }
 
         weightCounter.Refresh(inventory);
+    }
+
+    private void MarkButton(Transform itemSlot, int index)
+    {
+        itemSlot.GetComponent<Button>().onClick.AddListener(delegate { MarkForSale(index); });
+    }
+
+    public void MarkForSale(int i)
+    {
+        uiShopSell.setItemForSale(i);
     }
 
     public void Show(IShopCustomer shopCustomer)

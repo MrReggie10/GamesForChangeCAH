@@ -12,7 +12,7 @@ public class UIShop : MonoBehaviour
 
     private void Awake()
     {
-        container = transform.Find("ShopMenuBuy_Container");
+        container = transform. Find("ShopMenuBuy_Container");
         button = container.transform.Find("ShopMenuBuy_Button");
         button.gameObject.SetActive(false);
     }
@@ -36,6 +36,7 @@ public class UIShop : MonoBehaviour
 
         button.transform.Find("ItemIcon").GetComponent<Image>().sprite = itemSprite;
 
+        //button checks for click
         buttonTransform.GetComponent<Button>().onClick.AddListener(delegate { TryBuyItem(type); });
     }
 

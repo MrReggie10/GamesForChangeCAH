@@ -42,6 +42,24 @@ public class InventorySystem
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
+    public void RemoveOneItem(int index)
+    {
+        itemList[index].amount -= 1;
+        if(itemList[index].amount <= 0)
+        {
+            itemList.RemoveAt(index);
+        }
+
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void RemoveAll(int index)
+    {
+        itemList.RemoveAt(index);
+
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
     public List<Item> getItemList()
     {
         return itemList;

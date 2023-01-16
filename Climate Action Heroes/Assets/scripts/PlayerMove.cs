@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
     private InventorySystem inventory;
     [SerializeField] private UI_Inventory uiInventory;
     [SerializeField] private TrashSpawner trashSpawner;
+    [SerializeField] private UI_CashAmount uiCashAmount;
     [SerializeField] private float maxWeight;
 
     public event EventHandler OnCashAmountChanged;
@@ -25,6 +26,8 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         inventory = new InventorySystem();
         inventory.setMaxWeight(maxWeight);
         uiInventory.SetInventory(inventory);
+
+        uiCashAmount.setCashText(cash);
     }
 
     void Update()
@@ -77,6 +80,7 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         item.amount = 1;
 
         inventory.addItem(item);
+        uiCashAmount.setCashText(cash);
     }
 
     bool IShopCustomer.TrySpendCashAmount(int spendCashAmount)
@@ -103,5 +107,33 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         {
             return false;
         }
+    }
+
+    InventorySystem IShopCustomer.GetInventorySystem()
+    {
+        return inventory;
+    }
+
+    void IShopCustomer.Remove1ItemPlayer(int index)
+    {
+        Debug.Log(index);
+
+        cash += inventory.getItemList()[index].getSell();
+        uiCashAmount.setCashText(cash);
+
+        inventory.RemoveOneItem(index);
+    }
+
+    void IShopCustomer.RemoveAllItemPlayer(int index)
+    {
+        cash += inventory.getItemList()[index].getSell() * inventory.getItemList()[index].amount;
+        uiCashAmount.setCashText(cash);
+
+        inventory.RemoveAll(index);
+    }
+
+    int IShopCustomer.GetCash()
+    {
+        return cash;
     }
 }

@@ -6,6 +6,7 @@ public class ShopTriggerCollider : MonoBehaviour
 {
     [SerializeField] private UIShop uiShop;
     [SerializeField] private UI_Inventory uiInventory;
+    [SerializeField] private UIShopSell uiSell;
     private bool shopOpen = false;
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -17,6 +18,7 @@ public class ShopTriggerCollider : MonoBehaviour
             {
                 uiShop.Show(shopCustomer);
                 uiInventory.Show(shopCustomer);
+                uiSell.Show(shopCustomer);
                 shopOpen = true;
             }
         }
@@ -30,6 +32,7 @@ public class ShopTriggerCollider : MonoBehaviour
         {
             uiShop.Hide();
             uiInventory.Hide();
+            uiSell.Hide();
         }
     }
 
