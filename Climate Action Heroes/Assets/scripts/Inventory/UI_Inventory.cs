@@ -77,11 +77,14 @@ public class UI_Inventory : MonoBehaviour
 
     private void MarkButton(Transform itemSlot, int index)
     {
+        itemSlot.GetComponent<Button>().onClick.RemoveAllListeners();
+
         itemSlot.GetComponent<Button>().onClick.AddListener(delegate { MarkForSale(index); });
     }
 
     public void MarkForSale(int i)
     {
+        Debug.Log("uiInventory");
         uiShopSell.setItemForSale(i);
     }
 

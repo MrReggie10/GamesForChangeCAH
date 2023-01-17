@@ -116,11 +116,10 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
 
     void IShopCustomer.Remove1ItemPlayer(int index)
     {
-        Debug.Log(index);
-
         cash += inventory.getItemList()[index].getSell();
         uiCashAmount.setCashText(cash);
 
+        Debug.Log("playermove");
         inventory.RemoveOneItem(index);
     }
 
@@ -129,6 +128,7 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         cash += inventory.getItemList()[index].getSell() * inventory.getItemList()[index].amount;
         uiCashAmount.setCashText(cash);
 
+        Debug.Log("playermove");
         inventory.RemoveAll(index);
     }
 
