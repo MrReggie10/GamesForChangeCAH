@@ -11,4 +11,6 @@ public interface IShopCustomer
     void Remove1ItemPlayer(int index);
     void RemoveAllItemPlayer(int index);
     int GetCash();
+    bool TryUseItems(Item.ItemType itemType);
+    void CraftItem(Item.ItemType itemType);
 }

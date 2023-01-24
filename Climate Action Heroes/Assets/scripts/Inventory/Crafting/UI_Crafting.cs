@@ -1,55 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class UIShop : MonoBehaviour
+public class UI_Crafting : MonoBehaviour
 {
     [SerializeField] private Item[] itemArray;
 
+    private Transform bg;
     private Transform container;
     private Transform button;
     private IShopCustomer shopCustomer;
 
     private void Awake()
     {
-        container = transform. Find("ShopMenuBuy_Container");
-        button = container.transform.Find("ShopMenuBuy_Button");
+        bg = transform.Find("Crafting_BG");
+        container = bg.Find("CraftingMenu_Container");
+        button = container.transform.Find("CraftingMenu_Button");
         button.gameObject.SetActive(false);
     }
 
     private void Start()
     {
-        foreach(Item item in itemArray)
+        foreach (Item item in itemArray)
         {
-            CreateItemButton(item.itemType, item.getSprite(), item.getName(), Item.getBuy(item.itemType));
+            CreateItemButton(item.itemType, item.getSprite(), item.getName(), Item.getRecipe(item.itemType));
         }
 
         Hide();
     }
 
-    private void CreateItemButton(Item.ItemType type, Sprite itemSprite, string itemName, int itemCost)
+    
+    private void CreateItemButton(Item.ItemType type, Sprite itemSprite, string itemName, List<Item> items)
     {
         Transform buttonTransform = Instantiate(button, container);
         buttonTransform.gameObject.SetActive(true);
 
         buttonTransform.Find("ItemName").GetComponent<TextMeshProUGUI>().SetText(itemName);
-        buttonTransform.Find("ItemCost").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
+        buttonTransform.Find("ItemCost_Container").GetComponent<UI_CraftingRecipe>().CreateCraftingList(items);
 
         button.transform.Find("ItemIcon").GetComponent<Image>().sprite = itemSprite;
 
         //button checks for click
-        buttonTransform.GetComponent<Button>().onClick.AddListener(delegate { TryBuyItem(type); });
+        buttonTransform.GetComponent<Button>().onClick.AddListener(delegate { TryCraftItem(type); });
     }
 
-    public void TryBuyItem(Item.ItemType itemType)
+    private void TryCraftItem(Item.ItemType type)
     {
-        if(shopCustomer.TryFitWeight(Item.getWeight(itemType)))
+        if(shopCustomer.TryFitWeight(Item.getWeight(type)))
         {
-            if (shopCustomer.TrySpendCashAmount(Item.getBuy(itemType)))
+            if (shopCustomer.TryUseItems(type))
             {
-                shopCustomer.BoughtItem(itemType);
+                shopCustomer.CraftItem(type);
             }
         }
         

@@ -49,7 +49,6 @@ public class InventorySystem
         {
             itemList.RemoveAt(index);
         }
-        Debug.Log("inventorySystem");
 
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
@@ -57,7 +56,6 @@ public class InventorySystem
     public void RemoveAll(int index)
     {
         itemList.RemoveAt(index);
-        Debug.Log("inventorySystem");
 
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }

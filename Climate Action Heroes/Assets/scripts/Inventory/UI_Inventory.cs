@@ -84,7 +84,6 @@ public class UI_Inventory : MonoBehaviour
 
     public void MarkForSale(int i)
     {
-        Debug.Log("uiInventory");
         uiShopSell.setItemForSale(i);
     }
 

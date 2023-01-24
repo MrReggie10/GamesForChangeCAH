@@ -119,7 +119,6 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         cash += inventory.getItemList()[index].getSell();
         uiCashAmount.setCashText(cash);
 
-        Debug.Log("playermove");
         inventory.RemoveOneItem(index);
     }
 
@@ -128,12 +127,65 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         cash += inventory.getItemList()[index].getSell() * inventory.getItemList()[index].amount;
         uiCashAmount.setCashText(cash);
 
-        Debug.Log("playermove");
         inventory.RemoveAll(index);
     }
 
     int IShopCustomer.GetCash()
     {
         return cash;
+    }
+
+    bool IShopCustomer.TryUseItems(Item.ItemType itemType)
+    {
+        List<Item> recipe = Item.getRecipe(itemType);
+        List<Item> inv = inventory.getItemList();
+        bool itemFound = false;
+
+        //search the array
+        foreach(Item item1 in recipe)
+        {
+            foreach(Item item2 in inv)
+            {
+                if(item1.itemType == item2.itemType)
+                {
+                    if(item2.amount >= item1.amount)
+                    {
+                        itemFound = true;
+                        break;
+                    }
+                }
+            }
+            if(!itemFound)
+            {
+                return false;
+            }
+            itemFound = false;
+        }
+
+        //take away the items
+        foreach (Item item1 in recipe)
+        {
+            for(int j = 0; j < inv.Count; j++)
+            {
+                if (item1.itemType == inv[j].itemType)
+                {
+                    for(int i = 0; i < item1.amount; i++)
+                    {
+                        inventory.RemoveOneItem(j);
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
+    void IShopCustomer.CraftItem(Item.ItemType itemType)
+    {
+        Item item = new Item();
+        item.itemType = itemType;
+        item.amount = 1;
+
+        inventory.addItem(item);
     }
 }

@@ -32,8 +32,6 @@ public class UIShopSell : MonoBehaviour
         sell1.interactable = true;
         sellAll.interactable = true;
 
-        Debug.Log("uiShopSell");
-
         sell1.onClick.RemoveAllListeners();
         sellAll.onClick.RemoveAllListeners();
 

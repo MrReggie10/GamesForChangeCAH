@@ -17,6 +17,10 @@ public class ItemAssets : MonoBehaviour
     public Sprite plasticBag;
     public Sprite plasticBottle;
     public Sprite glassBottle;
+    public Sprite straw;
+    public Sprite bottleCap;
+
+    public Sprite windmill_lvl_1;
 
 
 }
