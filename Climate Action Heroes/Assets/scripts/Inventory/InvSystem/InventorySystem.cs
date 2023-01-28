@@ -14,7 +14,6 @@ public class InventorySystem
     public InventorySystem()
     {
         itemList = new List<Item>();
-
     }
 
     public void addItem(Item item)

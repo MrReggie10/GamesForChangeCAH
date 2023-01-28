@@ -13,4 +13,5 @@ public interface IShopCustomer
     int GetCash();
     bool TryUseItems(Item.ItemType itemType);
     void CraftItem(Item.ItemType itemType);
+    void EquipBike(Bikes.BikeType bikeType);
 }

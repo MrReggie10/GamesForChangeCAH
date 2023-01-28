@@ -11,10 +11,13 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
     private Vector2 input;
     private Rigidbody2D rb;
 
+    private Bikes.BikeType currentBike;
+
     private InventorySystem inventory;
     [SerializeField] private UI_Inventory uiInventory;
     [SerializeField] private TrashSpawner trashSpawner;
     [SerializeField] private UI_CashAmount uiCashAmount;
+    [SerializeField] private UI_WeightCounter uiWeightCounter;
     [SerializeField] private float maxWeight;
 
     public event EventHandler OnCashAmountChanged;
@@ -58,7 +61,7 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
 
 
     //movement
-    void ProcessInputs()
+    private void ProcessInputs()
     {
         float MoveX = Input.GetAxisRaw("Horizontal");
         float MoveY = Input.GetAxisRaw("Vertical");
@@ -66,11 +69,16 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         input = new Vector2(MoveX, MoveY);
         input.Normalize();
     }
-    void Move()
+
+    private void Move()
     {
         rb.velocity = input * moveSpeed;
     }
 
+    private void UpdateSprite()
+    {
+
+    }
 
     //buying items
     public void BoughtItem(Item.ItemType itemType)
@@ -187,5 +195,18 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         item.amount = 1;
 
         inventory.addItem(item);
+    }
+
+    void IShopCustomer.EquipBike(Bikes.BikeType bikeType)
+    {
+        moveSpeed = Bikes.GetMoveSpeed(bikeType);
+        maxWeight = Bikes.GetStorage(bikeType);
+
+        inventory.setMaxWeight(maxWeight);
+
+        uiCashAmount.setCashText(cash);
+        uiWeightCounter.Refresh(inventory);
+
+        UpdateSprite();
     }
 }

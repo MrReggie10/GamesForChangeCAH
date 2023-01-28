@@ -102,6 +102,8 @@ public class Item
                 return 0.2f;
             case ItemType.bottle_cap:
                 return 0.2f;
+            case ItemType.wind_turbine_lvl_1:
+                return 2.5f;
         }
     }
 
