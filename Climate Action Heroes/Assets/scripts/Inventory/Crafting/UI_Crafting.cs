@@ -48,7 +48,15 @@ public class UI_Crafting : MonoBehaviour
 
     private void TryCraftItem(Item.ItemType type)
     {
-        if(shopCustomer.TryFitWeight(Item.getWeight(type)))
+        float ingredientsWeight = 0;
+        if(Item.getRecipe(type) != null)
+        {
+            foreach(Item item in Item.getRecipe(type))
+            {
+                ingredientsWeight += item.getWeight() * item.amount;
+            }
+        }
+        if(shopCustomer.TryFitWeight(Item.getWeight(type)-ingredientsWeight))
         {
             if (shopCustomer.TryUseItems(type))
             {

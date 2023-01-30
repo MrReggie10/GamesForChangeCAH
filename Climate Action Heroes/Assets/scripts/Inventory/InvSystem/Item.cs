@@ -81,6 +81,9 @@ public class Item
                 return true;
             case ItemType.bottle_cap:
                 return true;
+
+            case ItemType.wind_turbine_lvl_1:
+                return false;
         }
          
     }

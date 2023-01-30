@@ -14,4 +14,5 @@ public interface IShopCustomer
     bool TryUseItems(Item.ItemType itemType);
     void CraftItem(Item.ItemType itemType);
     void EquipBike(Bikes.BikeType bikeType);
+    void RemoveItem(int itemIndex);
 }

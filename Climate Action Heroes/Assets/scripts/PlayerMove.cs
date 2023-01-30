@@ -97,6 +97,7 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         {
             cash -= spendCashAmount;
             OnCashAmountChanged?.Invoke(this, EventArgs.Empty);
+            uiCashAmount.setCashText(cash);
             return true;
         }
         else
@@ -208,5 +209,10 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         uiWeightCounter.Refresh(inventory);
 
         UpdateSprite();
+    }
+
+    void IShopCustomer.RemoveItem(int itemIndex)
+    {
+        inventory.RemoveOneItem(itemIndex);
     }
 }
