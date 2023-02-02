@@ -28,9 +28,14 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
 
         inventory = new InventorySystem();
         inventory.setMaxWeight(maxWeight);
-        uiInventory.SetInventory(inventory);
+        Invoke("delayedAwake", 0.01f);
 
         uiCashAmount.setCashText(cash);
+    }
+
+    void delayedAwake()
+    {
+        uiInventory.SetInventory(inventory);
     }
 
     void Update()
@@ -214,5 +219,18 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
     void IShopCustomer.RemoveItem(int itemIndex)
     {
         inventory.RemoveOneItem(itemIndex);
+    }
+
+    void IShopCustomer.Add1ItemPlayer(Item item)
+    {
+        inventory.addItem(item);
+    }
+
+    void IShopCustomer.AddAllItemPlayer(Item item)
+    {
+        for(int i = 0; i < item.amount; i++)
+        {
+            inventory.addItem(item);
+        }
     }
 }

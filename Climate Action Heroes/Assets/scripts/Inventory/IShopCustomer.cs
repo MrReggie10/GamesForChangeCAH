@@ -15,4 +15,7 @@ public interface IShopCustomer
     void CraftItem(Item.ItemType itemType);
     void EquipBike(Bikes.BikeType bikeType);
     void RemoveItem(int itemIndex);
+
+    void Add1ItemPlayer(Item item);
+    void AddAllItemPlayer(Item item);
 }
