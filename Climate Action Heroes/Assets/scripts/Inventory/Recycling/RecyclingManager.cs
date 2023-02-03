@@ -25,4 +25,14 @@ public class RecyclingManager : MonoBehaviour
         uiRecycling.SetStorage(storage);
         storage.addItem(items[0]);
     }
+
+    public void SetMaxWeight(float weight)
+    {
+        maxWeight = weight;
+    }
+
+    public void SetTrucks(int trucks)
+    {
+        currentTrucks = trucks;
+    }
 }
