@@ -41,6 +41,7 @@ public class UI_RecyclingStorage : MonoBehaviour
     private void Storage_OnStorageListChanged(object sender, System.EventArgs e)
     {
         RefreshInventoryItems();
+        Debug.Log("event works");
     }
 
     private void RefreshInventoryItems()
@@ -83,9 +84,10 @@ public class UI_RecyclingStorage : MonoBehaviour
 
     public void TryFit(int i)
     {
+        Debug.Log("not an issue with the button");
         if(Input.GetKey(KeyCode.LeftShift))
         {
-            if(shopCustomer.TryFitWeight(storage.getStorageList()[i].getWeight()* storage.getStorageList()[i].amount))
+            if(shopCustomer.TryFitWeight(storage.getStorageList()[i].getWeight() * storage.getStorageList()[i].amount))
             {
                 MoveItems(i);
             }
@@ -107,7 +109,8 @@ public class UI_RecyclingStorage : MonoBehaviour
 
     void MoveItem(int i)
     {
-        shopCustomer.Add1ItemPlayer(storage.getStorageList()[i]);
+        Item tempItem = new Item(storage.getStorageList()[i].itemType, 1);
+        shopCustomer.Add1ItemPlayer(tempItem);
         storage.RemoveOneItem(i);
     }
 

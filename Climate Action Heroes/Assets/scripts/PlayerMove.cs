@@ -228,9 +228,11 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
 
     void IShopCustomer.AddAllItemPlayer(Item item)
     {
+        Item tempItem = new Item(item.itemType, 1);
+
         for(int i = 0; i < item.amount; i++)
         {
-            inventory.addItem(item);
+            inventory.addItem(tempItem);
         }
     }
 }

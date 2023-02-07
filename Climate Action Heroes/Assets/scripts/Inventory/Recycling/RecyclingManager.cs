@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class RecyclingManager : MonoBehaviour
 {
+    private RecyclingSystem storage;
+
     [SerializeField] UI_RecyclingStorage uiRecycling;
 
     [SerializeField] private float maxWeight;
-    private RecyclingSystem storage;
-
     [SerializeField] private int currentTrucks;
 
-    [SerializeField] private List<Item> items;
+    [SerializeField] private List<Item> rareItems;
+    [SerializeField] private List<Item> legItems;
+
+    [SerializeField] private int oneOutOfThisIsLegendary;
+    [SerializeField] private float spawnTime;
+
+    private float timer = 0;
 
     private void Awake()
     {
@@ -20,10 +26,45 @@ public class RecyclingManager : MonoBehaviour
         Invoke("delayedAwake", 0.01f);
     }
 
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if(timer >= spawnTime)
+        {
+            timer = 0;
+            for (int i = 0; i < currentTrucks*2; i++)
+            {
+                AddItem();
+            }
+        }
+    }
+
     void delayedAwake()
     {
         uiRecycling.SetStorage(storage);
-        storage.addItem(items[0]);
+    }
+
+    private void AddItem()
+    {
+        if(Random.Range(0, oneOutOfThisIsLegendary) == 1)
+        {
+            int i = Random.Range(0, legItems.Count - 1);
+            Debug.Log(legItems[i].getName() + " : " + legItems[i].getWeight() + " : " + storage.getMaxWeight() + " : " + storage.getCurrentWeight());
+            if (legItems[i].getWeight() <= storage.getMaxWeight() - storage.getCurrentWeight())
+            {
+                storage.addItem(legItems[i]);
+            }
+        }
+        else
+        {
+            int i = Random.Range(0, rareItems.Count - 1);
+            Debug.Log(rareItems[i].getName() + " : " + rareItems[i].getWeight() + " : " + storage.getMaxWeight() + " : " + storage.getCurrentWeight());
+            if (rareItems[i].getWeight() <= storage.getMaxWeight() - storage.getCurrentWeight())
+            {
+                storage.addItem(rareItems[i]);
+            }
+        }
+
     }
 
     public void SetMaxWeight(float weight)

@@ -1992,7 +1992,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemArray:
-  - itemType: 6
+  - itemType: 15
+    amount: 1
+  - itemType: 16
+    amount: 1
+  - itemType: 17
+    amount: 1
+  - itemType: 18
+    amount: 1
+  - itemType: 19
+    amount: 1
+  - itemType: 20
+    amount: 1
+  - itemType: 21
+    amount: 1
+  - itemType: 22
+    amount: 1
+  - itemType: 23
     amount: 1
 --- !u!1 &2696893864974982923
 GameObject:
@@ -4993,11 +5009,28 @@ MonoBehaviour:
   pfItemWorld: {fileID: 1525605806147390868, guid: 01a58d1856ce9444fac468b176a7f7c0, type: 3}
   cigarette: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
   plasticBag: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
-  plasticBottle: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
-  glassBottle: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
-  straw: {fileID: 3625043607559282579, guid: 37151e743ffb3467d9c959de277015c4, type: 3}
+  plasticBottle: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
+  straw: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
   bottleCap: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
+  foodWrapper: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
+  tinCan: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
+  rubber: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
+  copperSheet: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
+  ironSheet: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
+  glassBottle: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
+  cardboard: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
+  windRotor: {fileID: 3625043607559282579, guid: 37151e743ffb3467d9c959de277015c4, type: 3}
+  waterTurbine: {fileID: 3625043607559282579, guid: 37151e743ffb3467d9c959de277015c4, type: 3}
+  solarCell: {fileID: 3625043607559282579, guid: 37151e743ffb3467d9c959de277015c4, type: 3}
   windmill_lvl_1: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
+  windmill_lvl_2: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
+  windmill_lvl_3: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
+  dam_lvl_1: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
+  dam_lvl_2: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
+  dam_lvl_3: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
+  solarPanel_lvl_1: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
+  solarPanel_lvl_2: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
+  solarPanel_lvl_3: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
 --- !u!1 &5427508253041549291
 GameObject:
   m_ObjectHideFlags: 0
@@ -5340,11 +5373,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiRecycling: {fileID: 30180630862565652}
-  maxWeight: 50
-  currentTrucks: 0
-  items:
-  - itemType: 5
+  maxWeight: 10
+  currentTrucks: 1
+  rareItems:
+  - itemType: 6
     amount: 1
+  - itemType: 7
+    amount: 1
+  - itemType: 8
+    amount: 1
+  - itemType: 9
+    amount: 1
+  - itemType: 10
+    amount: 1
+  - itemType: 11
+    amount: 1
+  legItems:
+  - itemType: 12
+    amount: 1
+  - itemType: 13
+    amount: 1
+  - itemType: 14
+    amount: 1
+  oneOutOfThisIsLegendary: 50
+  spawnTime: 5
 --- !u!1 &6019622200259255065
 GameObject:
   m_ObjectHideFlags: 0
@@ -5355,7 +5407,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7160564190974089266}
   - component: {fileID: 2198587881138191901}
-  - component: {fileID: 7387785876283396598}
   m_Layer: 0
   m_Name: ShopMenuBuy_Container
   m_TagString: Untagged
@@ -5401,7 +5452,7 @@ MonoBehaviour:
     m_Top: 25
     m_Bottom: 25
   m_ChildAlignment: 1
-  m_Spacing: -100
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -5409,20 +5460,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &7387785876283396598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6019622200259255065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: 0}
-  m_Softness: {x: 0, y: 0}
 --- !u!1 &6021333145458923272
 GameObject:
   m_ObjectHideFlags: 0
@@ -7617,8 +7654,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0, g: 1, b: 0.06844115, a: 1}
+    m_PressedColor: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+    m_SelectedColor: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
