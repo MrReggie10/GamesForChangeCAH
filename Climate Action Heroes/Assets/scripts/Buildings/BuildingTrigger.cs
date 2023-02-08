@@ -16,7 +16,6 @@ public class BuildingTrigger : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Debug.Log("key pressed");
                     switch (buildingType)
                     {
                         default:
@@ -28,6 +27,32 @@ public class BuildingTrigger : MonoBehaviour
                             break;
                         case BuildingStates.States.windmill_lvl2:
                             buildingType = BuildingStates.States.windmill_lvl3;
+                            break;
+                        case BuildingStates.States.windmill_lvl3:
+                            break;
+
+                        case BuildingStates.States.hydrogenerator_plot:
+                            buildingType = BuildingStates.States.hydrogenerator_lvl1;
+                            break;
+                        case BuildingStates.States.hydrogenerator_lvl1:
+                            buildingType = BuildingStates.States.hydrogenerator_lvl2;
+                            break;
+                        case BuildingStates.States.hydrogenerator_lvl2:
+                            buildingType = BuildingStates.States.hydrogenerator_lvl3;
+                            break;
+                        case BuildingStates.States.hydrogenerator_lvl3:
+                            break;
+
+                        case BuildingStates.States.solar_plot:
+                            buildingType = BuildingStates.States.solar_lvl1;
+                            break;
+                        case BuildingStates.States.solar_lvl1:
+                            buildingType = BuildingStates.States.solar_lvl2;
+                            break;
+                        case BuildingStates.States.solar_lvl2:
+                            buildingType = BuildingStates.States.solar_lvl3;
+                            break;
+                        case BuildingStates.States.solar_lvl3:
                             break;
                     }
                     for(int i = 0; i < shopCustomer.GetInventorySystem().getItemList().Count; i++)

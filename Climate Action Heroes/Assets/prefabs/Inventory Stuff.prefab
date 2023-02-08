@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 0}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
@@ -1385,6 +1385,18 @@ MonoBehaviour:
     amount: 1
   - itemType: 5
     amount: 1
+  - itemType: 6
+    amount: 1
+  - itemType: 7
+    amount: 1
+  - itemType: 8
+    amount: 1
+  - itemType: 9
+    amount: 1
+  - itemType: 10
+    amount: 1
+  - itemType: 11
+    amount: 1
 --- !u!114 &5315274171055464251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1544,6 +1556,8 @@ GameObject:
   - component: {fileID: 3287296384832180810}
   - component: {fileID: 6412612292576722239}
   - component: {fileID: 5658314206461353490}
+  - component: {fileID: 9029024878716825619}
+  - component: {fileID: 7104777924584723315}
   m_Layer: 0
   m_Name: BikeShop_BG
   m_TagString: Untagged
@@ -1609,6 +1623,50 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9029024878716825619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052996477065379640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
+--- !u!114 &7104777924584723315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052996477065379640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Content: {fileID: 3903447566700614467}
+  m_Horizontal: 0
+  m_Vertical: 1
+  m_MovementType: 1
+  m_Elasticity: 0.1
+  m_Inertia: 1
+  m_DecelerationRate: 0.135
+  m_ScrollSensitivity: 1
+  m_Viewport: {fileID: 0}
+  m_HorizontalScrollbar: {fileID: 0}
+  m_VerticalScrollbar: {fileID: 0}
+  m_HorizontalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: 0
+  m_VerticalScrollbarSpacing: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2155493678457176470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,7 +2302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 0}
+  m_AnchoredPosition: {x: 10, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &359434605299101033
@@ -3543,7 +3601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9010874930797472238}
   - component: {fileID: 4950732486776079326}
-  - component: {fileID: 6293950140643883294}
+  - component: {fileID: 2457170809496336777}
   m_Layer: 0
   m_Name: CraftingMenu_Container
   m_TagString: Untagged
@@ -3566,11 +3624,11 @@ RectTransform:
   m_Father: {fileID: 6389309958993989172}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000045776367}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &4950732486776079326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3597,7 +3655,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &6293950140643883294
+--- !u!114 &2457170809496336777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3606,11 +3664,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4688507832214849666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: 0}
-  m_Softness: {x: 0, y: 0}
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &4769798215406846113
 GameObject:
   m_ObjectHideFlags: 0
@@ -3771,6 +3829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1350542655073181687}
   - component: {fileID: 2309369417550363667}
+  - component: {fileID: 8619634527156623084}
   m_Layer: 0
   m_Name: RecyclingStorage_Container
   m_TagString: Untagged
@@ -3793,11 +3852,11 @@ RectTransform:
   m_Father: {fileID: 7704291305381683274}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2309369417550363667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3822,6 +3881,20 @@ MonoBehaviour:
   m_Spacing: {x: 25, y: 25}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &8619634527156623084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4886183744597432525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &4985193471647573612
 GameObject:
   m_ObjectHideFlags: 0
@@ -5041,6 +5114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5427508253041549290}
   - component: {fileID: 8249585981835329681}
+  - component: {fileID: 8123554472763403586}
   m_Layer: 0
   m_Name: ItemSlotContainer
   m_TagString: Untagged
@@ -5063,11 +5137,11 @@ RectTransform:
   m_Father: {fileID: 5427508252059139865}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 525, y: 400}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.00015258789}
+  m_SizeDelta: {x: 1, y: 0}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &8249585981835329681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5092,6 +5166,20 @@ MonoBehaviour:
   m_Spacing: {x: 25, y: 25}
   m_Constraint: 1
   m_ConstraintCount: 4
+--- !u!114 &8123554472763403586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5427508253041549291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &5483032839366364392
 GameObject:
   m_ObjectHideFlags: 0
@@ -5407,6 +5495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7160564190974089266}
   - component: {fileID: 2198587881138191901}
+  - component: {fileID: 5817038278877563124}
   m_Layer: 0
   m_Name: ShopMenuBuy_Container
   m_TagString: Untagged
@@ -5429,11 +5518,11 @@ RectTransform:
   m_Father: {fileID: 6964272873772771456}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2198587881138191901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5460,6 +5549,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5817038278877563124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6019622200259255065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &6021333145458923272
 GameObject:
   m_ObjectHideFlags: 0
@@ -6369,6 +6472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3903447566700614467}
   - component: {fileID: 4091663998894748672}
+  - component: {fileID: 1839416572537559556}
   m_Layer: 0
   m_Name: BikeShop_Container
   m_TagString: Untagged
@@ -6391,11 +6495,11 @@ RectTransform:
   m_Father: {fileID: 3287296384832180810}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &4091663998894748672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6422,6 +6526,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1839416572537559556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052284282229481135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &7060077900487729236
 GameObject:
   m_ObjectHideFlags: 0

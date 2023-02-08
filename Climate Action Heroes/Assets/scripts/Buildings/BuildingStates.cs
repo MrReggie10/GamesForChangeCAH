@@ -41,6 +41,19 @@ public class BuildingStates
         {
             default:
             case States.windmill_plot: return "Windmill Lvl 1";
+            case States.windmill_lvl1: return "Windmill Lvl 2";
+            case States.windmill_lvl2: return "Windmill Lvl 3";
+            case States.windmill_lvl3: return null;
+
+            case States.hydrogenerator_plot: return "Dam Lvl 1";
+            case States.hydrogenerator_lvl1: return "Dam Lvl 2";
+            case States.hydrogenerator_lvl2: return "Dam Lvl 3";
+            case States.hydrogenerator_lvl3: return null;
+
+            case States.solar_plot: return "Solar Panel Lvl 1";
+            case States.solar_lvl1: return "Solar Panel Lvl 2";
+            case States.solar_lvl2: return "Solar Panel Lvl 3";
+            case States.solar_lvl3: return null;
         }
     }
 
@@ -50,6 +63,19 @@ public class BuildingStates
         {
             default:
             case States.windmill_plot: return "Windmill Lvl 1";
+            case States.windmill_lvl1: return "Windmill Lvl 2";
+            case States.windmill_lvl2: return "Windmill Lvl 3";
+            case States.windmill_lvl3: return null;
+
+            case States.hydrogenerator_plot: return "Dam Lvl 1";
+            case States.hydrogenerator_lvl1: return "Dam Lvl 2";
+            case States.hydrogenerator_lvl2: return "Dam Lvl 3";
+            case States.hydrogenerator_lvl3: return null;
+
+            case States.solar_plot: return "Solar Panel Lvl 1";
+            case States.solar_lvl1: return "Solar Panel Lvl 2";
+            case States.solar_lvl2: return "Solar Panel Lvl 3";
+            case States.solar_lvl3: return null;
         }
     }
 
