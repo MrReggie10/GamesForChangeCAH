@@ -4458,6 +4458,8 @@ MonoBehaviour:
     amount: 1
   - itemType: 5
     amount: 1
+  - itemType: 3
+    amount: 1
   rareTrash: []
   legendaryTrash: []
   maxTrash: 300

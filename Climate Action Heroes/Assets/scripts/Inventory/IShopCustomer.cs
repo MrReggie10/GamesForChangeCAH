@@ -18,4 +18,6 @@ public interface IShopCustomer
 
     void Add1ItemPlayer(Item item);
     void AddAllItemPlayer(Item item);
+    void DisableMovement();
+    void EnableMovement();
 }

@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 35816209}
   m_Layer: 0
   m_Name: Hitbox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1526,6 +1526,131 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &207187280
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1624650300067826202, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 9d644f65436a94e289aa820ad69995df, type: 3}
+    - target: {fileID: 1624650300351981466, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 9d644f65436a94e289aa820ad69995df, type: 3}
+    - target: {fileID: 1624650300689845038, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -450
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650300689845038, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650300689845038, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486667, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486667, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486667, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486667, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486667, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486667, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486667, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486667, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486667, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486667, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486667, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486668, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486670, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: m_Name
+      value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486671, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486671, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Hello.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486671, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Welcome to Green City!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486671, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: As you can tell, it's not very green at the moment.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486671, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: dialogue.Array.data[0].text
+      value: Hi! My name is Reggie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486671, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: dialogue.Array.data[1].text
+      value: Nice to meet you Reggie!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486671, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: dialogue.Array.data[0].characterName
+      value: Reggie
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486671, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: dialogue.Array.data[1].characterName
+      value: Tiffany
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486671, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: dialogue.Array.data[1].characterType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624650301094486671, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: dialogue.Array.data[0].characterSprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
+    - target: {fileID: 1624650301094486671, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
+      propertyPath: dialogue.Array.data[1].characterSprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d74c02069b08d3540b51eb91fad6cef6, type: 3}
 --- !u!1 &207365226
 GameObject:
   m_ObjectHideFlags: 0
@@ -3025,7 +3150,7 @@ Transform:
   - {fileID: 937890330}
   - {fileID: 1480700684}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &427176330
 GameObject:
@@ -5338,7 +5463,7 @@ Transform:
   - {fileID: 789528835}
   - {fileID: 1138705886}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &784605771
 GameObject:
@@ -7313,7 +7438,7 @@ Transform:
   - {fileID: 1984946028}
   - {fileID: 1635813799}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1079572606
 GameObject:
@@ -8583,7 +8708,7 @@ Transform:
   - {fileID: 42694427}
   - {fileID: 382232567}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1264471951 stripped
 MonoBehaviour:
@@ -11847,7 +11972,7 @@ GameObject:
   - component: {fileID: 1895766049}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11901,7 +12026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25d40945f195476fb707e3313793ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cash: 30000
+  cash: 0
   moveSpeed: 5
   uiInventory: {fileID: 574613739}
   trashSpawner: {fileID: 574613738}

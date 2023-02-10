@@ -48,6 +48,8 @@ public class UI_Crafting : MonoBehaviour
 
     private void TryCraftItem(Item.ItemType type)
     {
+
+        /*
         float ingredientsWeight = 0;
         if(Item.getRecipe(type) != null)
         {
@@ -58,11 +60,12 @@ public class UI_Crafting : MonoBehaviour
         }
         if(shopCustomer.TryFitWeight(Item.getWeight(type)-ingredientsWeight))
         {
+        */
             if (shopCustomer.TryUseItems(type))
             {
                 shopCustomer.CraftItem(type);
             }
-        }
+        //}
         
     }
 

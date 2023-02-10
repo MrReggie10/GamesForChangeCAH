@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
     [SerializeField] private float moveSpeed;
     private Vector2 input;
     private Rigidbody2D rb;
+    private bool canMove = true;
 
     private Bikes.BikeType currentBike;
 
@@ -40,12 +41,18 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
 
     void Update()
     {
-        ProcessInputs();
+        if(canMove)
+        {
+            ProcessInputs();
+        }
     }
 
     void FixedUpdate()
     {
-        Move();
+        if(canMove)
+        {
+            Move();
+        }
     }
 
 
@@ -234,5 +241,15 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         {
             inventory.addItem(tempItem);
         }
+    }
+
+    void IShopCustomer.DisableMovement()
+    {
+        canMove = false;
+    }
+
+    void IShopCustomer.EnableMovement()
+    {
+        canMove = true;
     }
 }
