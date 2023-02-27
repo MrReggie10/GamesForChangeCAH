@@ -49,7 +49,6 @@ public class RecyclingManager : MonoBehaviour
         if(Random.Range(0, oneOutOfThisIsLegendary) == 1)
         {
             int i = Random.Range(0, legItems.Count - 1);
-            Debug.Log(legItems[i].getName() + " : " + legItems[i].getWeight() + " : " + storage.getMaxWeight() + " : " + storage.getCurrentWeight());
             if (legItems[i].getWeight() <= storage.getMaxWeight() - storage.getCurrentWeight())
             {
                 storage.addItem(legItems[i]);
@@ -58,7 +57,6 @@ public class RecyclingManager : MonoBehaviour
         else
         {
             int i = Random.Range(0, rareItems.Count - 1);
-            Debug.Log(rareItems[i].getName() + " : " + rareItems[i].getWeight() + " : " + storage.getMaxWeight() + " : " + storage.getCurrentWeight());
             if (rareItems[i].getWeight() <= storage.getMaxWeight() - storage.getCurrentWeight())
             {
                 storage.addItem(rareItems[i]);

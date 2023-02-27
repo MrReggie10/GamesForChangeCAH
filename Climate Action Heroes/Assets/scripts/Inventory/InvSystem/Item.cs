@@ -120,7 +120,43 @@ public class Item
             case ItemType.dam_lvl_2:        return ItemAssets.Instance.dam_lvl_2;
             case ItemType.dam_lvl_3:        return ItemAssets.Instance.dam_lvl_3;
 
-            case ItemType.solar_panel_lvl_1:    return ItemAssets.Instance.solarPanel_lvl_1;
+            case ItemType.solar_panel_lvl_1:return ItemAssets.Instance.solarPanel_lvl_1;
+            case ItemType.solar_panel_lvl_2:return ItemAssets.Instance.solarPanel_lvl_2;
+            case ItemType.solar_panel_lvl_3:return ItemAssets.Instance.solarPanel_lvl_3;
+        }
+    }
+
+    public static Sprite getSprite(ItemType itemType)
+    {
+        switch (itemType)
+        {
+            default:
+            case ItemType.cigarette: return ItemAssets.Instance.cigarette;
+            case ItemType.plastic_bag: return ItemAssets.Instance.plasticBag;
+            case ItemType.plastic_bottle: return ItemAssets.Instance.plasticBottle;
+            case ItemType.straw: return ItemAssets.Instance.straw;
+            case ItemType.bottle_cap: return ItemAssets.Instance.bottleCap;
+            case ItemType.food_wrapper: return ItemAssets.Instance.foodWrapper;
+
+            case ItemType.tin_can: return ItemAssets.Instance.tinCan;
+            case ItemType.rubber: return ItemAssets.Instance.rubber;
+            case ItemType.copper_sheet: return ItemAssets.Instance.copperSheet;
+            case ItemType.iron_sheet: return ItemAssets.Instance.ironSheet;
+            case ItemType.glass_bottle: return ItemAssets.Instance.glassBottle;
+
+            case ItemType.wind_rotor: return ItemAssets.Instance.windRotor;
+            case ItemType.water_turbine: return ItemAssets.Instance.waterTurbine;
+            case ItemType.solar_cell: return ItemAssets.Instance.solarCell;
+
+            case ItemType.wind_turbine_lvl_1: return ItemAssets.Instance.windmill_lvl_1;
+            case ItemType.wind_turbine_lvl_2: return ItemAssets.Instance.windmill_lvl_2;
+            case ItemType.wind_turbine_lvl_3: return ItemAssets.Instance.windmill_lvl_3;
+
+            case ItemType.dam_lvl_1: return ItemAssets.Instance.dam_lvl_1;
+            case ItemType.dam_lvl_2: return ItemAssets.Instance.dam_lvl_2;
+            case ItemType.dam_lvl_3: return ItemAssets.Instance.dam_lvl_3;
+
+            case ItemType.solar_panel_lvl_1: return ItemAssets.Instance.solarPanel_lvl_1;
             case ItemType.solar_panel_lvl_2: return ItemAssets.Instance.solarPanel_lvl_2;
             case ItemType.solar_panel_lvl_3: return ItemAssets.Instance.solarPanel_lvl_3;
         }

@@ -23,13 +23,13 @@ public class UIShop : MonoBehaviour
     {
         foreach(Item item in itemArray)
         {
-            CreateItemButton(item.itemType, item.getSprite(), item.getName(), Item.getBuy(item.itemType));
+            CreateItemButton(item.itemType, item.getName(), Item.getBuy(item.itemType));
         }
 
         Hide();
     }
 
-    private void CreateItemButton(Item.ItemType type, Sprite itemSprite, string itemName, int itemCost)
+    private void CreateItemButton(Item.ItemType type, string itemName, int itemCost)
     {
         Transform buttonTransform = Instantiate(button, container);
         buttonTransform.gameObject.SetActive(true);
@@ -37,7 +37,7 @@ public class UIShop : MonoBehaviour
         buttonTransform.Find("ItemName").GetComponent<TextMeshProUGUI>().SetText(itemName);
         buttonTransform.Find("ItemCost").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
 
-        button.transform.Find("ItemIcon").GetComponent<Image>().sprite = itemSprite;
+        buttonTransform.Find("ItemIcon").GetComponent<Image>().sprite = Item.getSprite(type);
 
         //button checks for click
         buttonTransform.GetComponent<Button>().onClick.AddListener(delegate { TryBuyItem(type); });

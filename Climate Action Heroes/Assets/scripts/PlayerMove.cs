@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
     [SerializeField] private int cash;
 
     [SerializeField] private float moveSpeed;
+    private float bikeSpeed = 5;
     private Vector2 input;
     private Rigidbody2D rb;
     private bool canMove = true;
@@ -80,6 +81,18 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
 
         input = new Vector2(MoveX, MoveY);
         input.Normalize();
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if(moveSpeed == 5)
+            {
+                moveSpeed = bikeSpeed;
+            }
+            else
+            {
+                moveSpeed = 5;
+            }
+        }
     }
 
     private void Move()
@@ -212,7 +225,7 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
 
     void IShopCustomer.EquipBike(Bikes.BikeType bikeType)
     {
-        moveSpeed = Bikes.GetMoveSpeed(bikeType);
+        bikeSpeed = Bikes.GetMoveSpeed(bikeType);
         maxWeight = Bikes.GetStorage(bikeType);
 
         inventory.setMaxWeight(maxWeight);

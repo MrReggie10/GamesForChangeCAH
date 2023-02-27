@@ -4454,11 +4454,11 @@ MonoBehaviour:
     amount: 1
   - itemType: 2
     amount: 1
+  - itemType: 3
+    amount: 1
   - itemType: 4
     amount: 1
   - itemType: 5
-    amount: 1
-  - itemType: 3
     amount: 1
   rareTrash: []
   legendaryTrash: []
@@ -5082,30 +5082,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfItemWorld: {fileID: 1525605806147390868, guid: 01a58d1856ce9444fac468b176a7f7c0, type: 3}
-  cigarette: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
-  plasticBag: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
-  plasticBottle: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
-  straw: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
-  bottleCap: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
-  foodWrapper: {fileID: 7482667652216324306, guid: 2bf9382dda54a4426939ffd2e44875c7, type: 3}
-  tinCan: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
-  rubber: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
-  copperSheet: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
-  ironSheet: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
-  glassBottle: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
-  cardboard: {fileID: -9095717837082945937, guid: bd4191097f3d949528736655875b28c3, type: 3}
-  windRotor: {fileID: 3625043607559282579, guid: 37151e743ffb3467d9c959de277015c4, type: 3}
-  waterTurbine: {fileID: 3625043607559282579, guid: 37151e743ffb3467d9c959de277015c4, type: 3}
-  solarCell: {fileID: 3625043607559282579, guid: 37151e743ffb3467d9c959de277015c4, type: 3}
-  windmill_lvl_1: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
-  windmill_lvl_2: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
-  windmill_lvl_3: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
-  dam_lvl_1: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
-  dam_lvl_2: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
-  dam_lvl_3: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
-  solarPanel_lvl_1: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
-  solarPanel_lvl_2: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
-  solarPanel_lvl_3: {fileID: -2413806693520163455, guid: 99b47e88913d04c339bcda1bd3f97f4e, type: 3}
+  cigarette: {fileID: 2433294883196242628, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  plasticBag: {fileID: 6186020685950223539, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  plasticBottle: {fileID: -4600943568829167164, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  straw: {fileID: 552884712412909723, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  bottleCap: {fileID: 8093046331458242966, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  foodWrapper: {fileID: 8710820032630935801, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  tinCan: {fileID: -8491669589722576643, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  rubber: {fileID: 294980875059100238, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  copperSheet: {fileID: -8127818867115609648, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  ironSheet: {fileID: 6066340198164708907, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  glassBottle: {fileID: -8587762958460143683, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  cardboard: {fileID: 3903935769421614478, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  windRotor: {fileID: 735196546323505269, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  waterTurbine: {fileID: 4275756310184607831, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  solarCell: {fileID: 4279261712979794480, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  windmill_lvl_1: {fileID: -8566945862274405654, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  windmill_lvl_2: {fileID: -8918405983671943870, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  windmill_lvl_3: {fileID: -8730295826148231121, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  dam_lvl_1: {fileID: -4717661685995434603, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  dam_lvl_2: {fileID: 7947658480078170499, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  dam_lvl_3: {fileID: 7365597103101092571, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  solarPanel_lvl_1: {fileID: -850465134351905889, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  solarPanel_lvl_2: {fileID: -7981289395124116433, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
+  solarPanel_lvl_3: {fileID: -1273711443768090258, guid: 5fd033414bcf34ba093f0081567ada41, type: 3}
 --- !u!1 &5427508253041549291
 GameObject:
   m_ObjectHideFlags: 0

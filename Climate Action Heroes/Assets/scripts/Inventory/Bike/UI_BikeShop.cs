@@ -39,7 +39,7 @@ public class UI_BikeShop : MonoBehaviour
         buttonTransform.Find("ItemName").GetComponent<TextMeshProUGUI>().SetText(bikeName);
         buttonTransform.Find("ItemCost").GetComponent<TextMeshProUGUI>().SetText(bikeCost.ToString());
 
-        button.transform.Find("ItemIcon").GetComponent<Image>().sprite = bikeSprite;
+        buttonTransform.Find("ItemIcon").GetComponent<Image>().sprite = bikeSprite;
 
         //button checks for click
         buttonTransform.GetComponent<Button>().onClick.AddListener(delegate { TryBuyBike(type); });

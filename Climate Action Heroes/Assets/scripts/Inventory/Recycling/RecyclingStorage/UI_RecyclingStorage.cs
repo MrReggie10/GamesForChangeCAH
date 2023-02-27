@@ -41,7 +41,6 @@ public class UI_RecyclingStorage : MonoBehaviour
     private void Storage_OnStorageListChanged(object sender, System.EventArgs e)
     {
         RefreshInventoryItems();
-        Debug.Log("event works");
     }
 
     private void RefreshInventoryItems()
@@ -84,7 +83,6 @@ public class UI_RecyclingStorage : MonoBehaviour
 
     public void TryFit(int i)
     {
-        Debug.Log("not an issue with the button");
         if(Input.GetKey(KeyCode.LeftShift))
         {
             if(shopCustomer.TryFitWeight(storage.getStorageList()[i].getWeight() * storage.getStorageList()[i].amount))
