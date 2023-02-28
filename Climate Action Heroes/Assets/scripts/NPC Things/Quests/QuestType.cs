@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class QuestType : MonoBehaviour
 {
     [HideInInspector] public bool started;
-    public abstract void QuestStart(GameObject npc, GameObject UIinstance);
+    public abstract void QuestStart(GameObject npc, GameObject UIinstance, IShopCustomer shopCustomer);
 
     public abstract String GetQuestName();
 

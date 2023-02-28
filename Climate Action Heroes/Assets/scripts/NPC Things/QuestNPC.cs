@@ -183,7 +183,7 @@ public class QuestNPC : MonoBehaviour
 
         if (state == 0)
         {
-            QuestManager.questManager.StartQuest(quest, this.gameObject);
+            QuestManager.questManager.StartQuest(quest, this.gameObject, shopCustomer);
         }
 
         if (state == 2)

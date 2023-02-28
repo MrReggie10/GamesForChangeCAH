@@ -17,7 +17,7 @@ public class LightsQuest : QuestType
         return "Turn off all the lights";
     }
 
-    public override void QuestStart(GameObject npc, GameObject uiPanel)
+    public override void QuestStart(GameObject npc, GameObject uiPanel, IShopCustomer shopCustomer)
     {
         this.npc = npc;
 

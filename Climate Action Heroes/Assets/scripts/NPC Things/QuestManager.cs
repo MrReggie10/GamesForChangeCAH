@@ -20,7 +20,7 @@ public class QuestManager : MonoBehaviour
         questManager = this;
     }
 
-    public void StartQuest(GameObject type, GameObject npc)
+    public void StartQuest(GameObject type, GameObject npc, IShopCustomer shopCustomer)
     {
         GameObject tempQuestInstance = Instantiate(type, questContainer);
         currentQuests.Add(tempQuestInstance);
@@ -32,7 +32,7 @@ public class QuestManager : MonoBehaviour
         GameObject tempUIinstasnce = Instantiate(tempUIprefab, questUIcontainer);
         questUIs.Add(tempUIinstasnce);
 
-        tempQuestInstance.GetComponent<QuestType>().QuestStart(npc, tempUIinstasnce);
+        tempQuestInstance.GetComponent<QuestType>().QuestStart(npc, tempUIinstasnce, shopCustomer);
     }
 
     public void EndQuest(int xp, GameObject type, GameObject currentUI, GameObject npc)

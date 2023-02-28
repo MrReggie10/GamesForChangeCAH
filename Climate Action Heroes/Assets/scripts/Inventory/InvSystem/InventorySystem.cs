@@ -59,6 +59,11 @@ public class InventorySystem
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
+    public void UpdateInvSystem()
+    {
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
     public List<Item> getItemList()
     {
         return itemList;
