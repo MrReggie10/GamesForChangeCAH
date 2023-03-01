@@ -10,9 +10,6 @@ public class BagsQuest : QuestType
     private GameObject uiPanel;
     private IShopCustomer shopCustomer;
 
-    private int lightsOff = 0;
-    private int index;
-
     public override string GetQuestName()
     {
         return "Turn off all the lights";

@@ -21,36 +21,45 @@ public class BuildingTrigger : MonoBehaviour
                         default:
                         case BuildingStates.States.windmill_plot:
                             buildingType = BuildingStates.States.windmill_lvl1;
+                            ProgressionManager.progressionManager.AddXP(2);
                             break;
                         case BuildingStates.States.windmill_lvl1:
                             buildingType = BuildingStates.States.windmill_lvl2;
+                            ProgressionManager.progressionManager.AddXP(3);
                             break;
                         case BuildingStates.States.windmill_lvl2:
                             buildingType = BuildingStates.States.windmill_lvl3;
+                            ProgressionManager.progressionManager.AddXP(5);
                             break;
                         case BuildingStates.States.windmill_lvl3:
                             break;
 
                         case BuildingStates.States.hydrogenerator_plot:
                             buildingType = BuildingStates.States.hydrogenerator_lvl1;
+                            ProgressionManager.progressionManager.AddXP(4);
                             break;
                         case BuildingStates.States.hydrogenerator_lvl1:
                             buildingType = BuildingStates.States.hydrogenerator_lvl2;
+                            ProgressionManager.progressionManager.AddXP(6);
                             break;
                         case BuildingStates.States.hydrogenerator_lvl2:
                             buildingType = BuildingStates.States.hydrogenerator_lvl3;
+                            ProgressionManager.progressionManager.AddXP(10);
                             break;
                         case BuildingStates.States.hydrogenerator_lvl3:
                             break;
 
                         case BuildingStates.States.solar_plot:
                             buildingType = BuildingStates.States.solar_lvl1;
+                            ProgressionManager.progressionManager.AddXP(3);
                             break;
                         case BuildingStates.States.solar_lvl1:
                             buildingType = BuildingStates.States.solar_lvl2;
+                            ProgressionManager.progressionManager.AddXP(4);
                             break;
                         case BuildingStates.States.solar_lvl2:
                             buildingType = BuildingStates.States.solar_lvl3;
+                            ProgressionManager.progressionManager.AddXP(7);
                             break;
                         case BuildingStates.States.solar_lvl3:
                             break;

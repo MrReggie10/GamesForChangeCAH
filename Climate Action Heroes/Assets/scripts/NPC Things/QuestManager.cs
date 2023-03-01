@@ -51,6 +51,8 @@ public class QuestManager : MonoBehaviour
                 Destroy(questUI);
             }
         }
+
+        ProgressionManager.progressionManager.AddXP(xp);
     }
 
     public void SetQuestProgress(GameObject currentUI, int completed, int total)
