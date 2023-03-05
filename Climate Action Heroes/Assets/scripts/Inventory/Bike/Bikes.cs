@@ -138,4 +138,28 @@ public class Bikes
             case BikeType.rainbow_bike: return 30f;
         }
     }
+
+    public int GetPhase()
+    {
+        switch (bikeType)
+        {
+            default:
+            case BikeType.blue_bike: return 2;
+            case BikeType.red_bike: return 2;
+            case BikeType.electric_bike: return 3;
+            case BikeType.rainbow_bike: return 3;
+        }
+    }
+
+    public static int GetPhase(BikeType bikeTypeStatic)
+    {
+        switch (bikeTypeStatic)
+        {
+            default:
+            case BikeType.blue_bike: return 2;
+            case BikeType.red_bike: return 2;
+            case BikeType.electric_bike: return 3;
+            case BikeType.rainbow_bike: return 3;
+        }
+    }
 }

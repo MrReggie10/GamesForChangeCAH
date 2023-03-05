@@ -21,7 +21,7 @@ public class UI_WeightCounter : MonoBehaviour
     public void Refresh(InventorySystem inventory)
     {
         TextMeshProUGUI currentWeightText = weightTop_text.GetComponent<TextMeshProUGUI>();
-        currentWeightText.SetText(inventory.getCurrentWeight().ToString());
+        currentWeightText.SetText((Mathf.Round(inventory.getCurrentWeight() * 10) / 10).ToString());
 
         TextMeshProUGUI maxWeightText = weightBottom_text.GetComponent<TextMeshProUGUI>();
         maxWeightText.SetText(inventory.getMaxWeight().ToString());

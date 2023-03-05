@@ -476,4 +476,126 @@ public class Item
                 return new List<Item> { new Item(ItemType.solar_cell, 1), new Item(ItemType.cardboard, 10), new Item(ItemType.plastic_bottle, 50) };
         }
     }
+
+    public int GetPhase()
+    {
+        switch(itemType)
+        {
+            default:
+            case ItemType.cigarette:
+                return 1;
+            case ItemType.food_wrapper:
+                return 1;
+            case ItemType.plastic_bag:
+                return 1;
+            case ItemType.plastic_bottle:
+                return 1;
+            case ItemType.straw:
+                return 1;
+            case ItemType.bottle_cap:
+                return 1;
+
+            case ItemType.tin_can:
+                return 2;
+            case ItemType.rubber:
+                return 2;
+            case ItemType.copper_sheet:
+                return 2;
+            case ItemType.iron_sheet:
+                return 2;
+            case ItemType.glass_bottle:
+                return 2;
+            case ItemType.cardboard:
+                return 2;
+
+            case ItemType.wind_rotor:
+                return 3;
+            case ItemType.water_turbine:
+                return 3;
+            case ItemType.solar_cell:
+                return 3;
+
+            case ItemType.wind_turbine_lvl_1:
+                return 1;
+            case ItemType.wind_turbine_lvl_2:
+                return 2;
+            case ItemType.wind_turbine_lvl_3:
+                return 3;
+
+            case ItemType.dam_lvl_1:
+                return 2;
+            case ItemType.dam_lvl_2:
+                return 2;
+            case ItemType.dam_lvl_3:
+                return 3;
+
+            case ItemType.solar_panel_lvl_1:
+                return 3;
+            case ItemType.solar_panel_lvl_2:
+                return 3;
+            case ItemType.solar_panel_lvl_3:
+                return 3;
+        }
+    }
+
+    public static int GetPhase(ItemType itemType)
+    {
+        switch (itemType)
+        {
+            default:
+            case ItemType.cigarette:
+                return 1;
+            case ItemType.food_wrapper:
+                return 1;
+            case ItemType.plastic_bag:
+                return 1;
+            case ItemType.plastic_bottle:
+                return 1;
+            case ItemType.straw:
+                return 1;
+            case ItemType.bottle_cap:
+                return 1;
+
+            case ItemType.tin_can:
+                return 2;
+            case ItemType.rubber:
+                return 2;
+            case ItemType.copper_sheet:
+                return 2;
+            case ItemType.iron_sheet:
+                return 2;
+            case ItemType.glass_bottle:
+                return 2;
+            case ItemType.cardboard:
+                return 2;
+
+            case ItemType.wind_rotor:
+                return 3;
+            case ItemType.water_turbine:
+                return 3;
+            case ItemType.solar_cell:
+                return 3;
+
+            case ItemType.wind_turbine_lvl_1:
+                return 1;
+            case ItemType.wind_turbine_lvl_2:
+                return 2;
+            case ItemType.wind_turbine_lvl_3:
+                return 3;
+
+            case ItemType.dam_lvl_1:
+                return 2;
+            case ItemType.dam_lvl_2:
+                return 2;
+            case ItemType.dam_lvl_3:
+                return 3;
+
+            case ItemType.solar_panel_lvl_1:
+                return 3;
+            case ItemType.solar_panel_lvl_2:
+                return 3;
+            case ItemType.solar_panel_lvl_3:
+                return 3;
+        }
+    }
 }

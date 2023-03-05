@@ -63,7 +63,7 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         ItemWorld itemWorld = collision.GetComponent<ItemWorld>();
         if (itemWorld != null)
         {
-            if (inventory.getCurrentWeight() + itemWorld.getItem().getWeight() <= inventory.getMaxWeight())
+            if (inventory.getCurrentWeight() + itemWorld.getItem().getWeight() <= inventory.getMaxWeight() + 0.01)
             {
                 inventory.addItem(itemWorld.getItem());
                 itemWorld.DestroySelf();

@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UI_Crafting : MonoBehaviour
 {
     [SerializeField] private Item[] itemArray;
+    private List<GameObject> buttonArray = new List<GameObject>();
 
     private Transform bg;
     private Transform container;
@@ -19,9 +21,38 @@ public class UI_Crafting : MonoBehaviour
         container = bg.Find("CraftingMenu_Container");
         button = container.transform.Find("CraftingMenu_Button");
         button.gameObject.SetActive(false);
+
+        Invoke("DelayedAwake", 0.01f);
+    }
+
+    private void DelayedAwake()
+    {
+        ProgressionManager.progressionManager.OnPhaseChange += ReloadButtons;
+    }
+
+    private void ReloadButtons(object sender, EventArgs e)
+    {
+        for (int i = 0; i < buttonArray.Count; i++)
+        {
+            if (itemArray[i].GetPhase() > ProgressionManager.progressionManager.GetPhase())
+            {
+                buttonArray[i].transform.Find("Locked_BG").gameObject.SetActive(true);
+                buttonArray[i].transform.GetComponent<Button>().enabled = false;
+            }
+            else
+            {
+                buttonArray[i].transform.Find("Locked_BG").gameObject.SetActive(false);
+                buttonArray[i].transform.GetComponent<Button>().enabled = true;
+            }
+        }
     }
 
     private void Start()
+    {
+        Invoke("DelayedStart", 0.01f);
+    }
+
+    private void DelayedStart()
     {
         foreach (Item item in itemArray)
         {
@@ -30,17 +61,30 @@ public class UI_Crafting : MonoBehaviour
 
         Hide();
     }
-
     
     private void CreateItemButton(Item.ItemType type, Sprite itemSprite, string itemName, List<Item> items)
     {
-        Transform buttonTransform = Instantiate(button, container);
+        GameObject buttonTransform = Instantiate(button, container).gameObject;
+        buttonArray.Add(buttonTransform);
         buttonTransform.gameObject.SetActive(true);
 
-        buttonTransform.Find("ItemName").GetComponent<TextMeshProUGUI>().SetText(itemName);
-        buttonTransform.Find("ItemCost_Container").GetComponent<UI_CraftingRecipe>().CreateCraftingList(items);
+        buttonTransform.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().SetText(itemName);
+        buttonTransform.transform.Find("ItemCost_Container").GetComponent<UI_CraftingRecipe>().CreateCraftingList(items);
 
-        button.transform.Find("ItemIcon").GetComponent<Image>().sprite = itemSprite;
+        buttonTransform.transform.Find("ItemIcon").GetComponent<Image>().sprite = itemSprite;
+
+        if (Item.GetPhase(type) > ProgressionManager.progressionManager.GetPhase())
+        {
+            buttonTransform.transform.Find("Locked_BG").gameObject.SetActive(true);
+            GameObject tempBG = buttonTransform.transform.Find("Locked_BG").gameObject;
+            tempBG.transform.Find("Locked_text").GetComponent<TextMeshProUGUI>().SetText("Locked until Phase " + Item.GetPhase(type));
+            buttonTransform.transform.GetComponent<Button>().enabled = false;
+        }
+        else
+        {
+            buttonTransform.transform.Find("Locked_BG").gameObject.SetActive(false);
+            buttonTransform.transform.GetComponent<Button>().enabled = true;
+        }
 
         //button checks for click
         buttonTransform.GetComponent<Button>().onClick.AddListener(delegate { TryCraftItem(type); });
