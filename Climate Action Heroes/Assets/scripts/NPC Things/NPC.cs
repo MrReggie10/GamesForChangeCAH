@@ -63,7 +63,7 @@ public class NPC : MonoBehaviour
         }
         if(dialogueText.text == dialogue[index].getText())
         {
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
                 NextLine();
             }

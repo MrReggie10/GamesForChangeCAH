@@ -78,7 +78,7 @@ TextureImporter:
       213: -288704851017235955
     second: Trash_24
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -99,6 +99,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -137,6 +138,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -164,6 +166,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
@@ -712,6 +726,32 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Trash_11: 3903935769421614478
+      Trash_23: -1273711443768090258
+      Trash_5: 552884712412909723
+      Trash_17: -8730295826148231121
+      Trash_0: 2433294883196242628
+      Trash_9: 6066340198164708907
+      Trash_24: -288704851017235955
+      Trash_8: -8127818867115609648
+      Trash_15: -8566945862274405654
+      Trash_1: 8710820032630935801
+      Trash_3: 6186020685950223539
+      Trash_2: -4600943568829167164
+      Trash_6: -8491669589722576643
+      Trash_7: 294980875059100238
+      Trash_13: 4275756310184607831
+      Trash_14: 4279261712979794480
+      Trash_16: -8918405983671943870
+      Trash_12: 735196546323505269
+      Trash_22: -7981289395124116433
+      Trash_19: 7947658480078170499
+      Trash_18: -4717661685995434603
+      Trash_10: -8587762958460143683
+      Trash_4: 8093046331458242966
+      Trash_20: 7365597103101092571
+      Trash_21: -850465134351905889
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

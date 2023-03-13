@@ -159,7 +159,7 @@ TextureImporter:
       213: 7629777774342047639
     second: City Tilemap_51
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -180,6 +180,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -218,6 +219,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -245,6 +247,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
@@ -1360,6 +1374,59 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      City Tilemap_24: -1581212878845668450
+      City Tilemap_9: 1942788061085009198
+      City Tilemap_6: 5299170589811024192
+      City Tilemap_0: -4112304153067826813
+      City Tilemap_46: 1433843579454251136
+      City Tilemap_38: 759126796777919966
+      City Tilemap_29: -6273765877239166321
+      City Tilemap_39: 2072956988412299552
+      City Tilemap_20: 292035211407123026
+      City Tilemap_48: 102746741119005559
+      City Tilemap_5: 1303685296412694963
+      City Tilemap_30: 1768144890338813083
+      City Tilemap_21: -6778885009575875278
+      City Tilemap_34: -5977099888440300449
+      City Tilemap_35: 1211672653834256484
+      City Tilemap_51: 7629777774342047639
+      City Tilemap_22: -5055675241697529631
+      City Tilemap_41: -3644417695366467859
+      City Tilemap_16: -5557636574617875807
+      City Tilemap_40: 7269650320986405386
+      City Tilemap_10: 7595334173150641941
+      City Tilemap_31: 7973374277474431562
+      City Tilemap_36: -1982967510429552991
+      City Tilemap_8: 6000008687414810941
+      City Tilemap_45: 6263598966496270049
+      City Tilemap_11: -7520050667034945024
+      City Tilemap_3: -371272275735836399
+      City Tilemap_42: 3328341421038936509
+      City Tilemap_2: -3976096047478691671
+      City Tilemap_28: -8373063103951632391
+      City Tilemap_37: -3933068539210742853
+      City Tilemap_1: -2366943072012771997
+      City Tilemap_7: 2081968476357026977
+      City Tilemap_43: -3255520387039238173
+      City Tilemap_44: 2213754336408183092
+      City Tilemap_17: 5261157387738872370
+      City Tilemap_18: 492231077238297367
+      City Tilemap_13: 5555919555258712692
+      City Tilemap_15: -3216531514087764586
+      City Tilemap_49: 3600877873410989579
+      City Tilemap_19: -5247753827670531011
+      City Tilemap_26: -6693673002039441373
+      City Tilemap_47: -2586385779235908073
+      City Tilemap_12: 1389665151441882714
+      City Tilemap_25: -8075004512644884928
+      City Tilemap_23: -4635595389098383983
+      City Tilemap_27: -3992619616141627144
+      City Tilemap_50: 6027795027296223147
+      City Tilemap_14: -9198688584844953711
+      City Tilemap_4: -6792404782892550285
+      City Tilemap_32: 5040502442653528892
+      City Tilemap_33: -2575684500851369264
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

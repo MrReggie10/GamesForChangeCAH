@@ -28,8 +28,8 @@ public class TrashSpawner : MonoBehaviour
         timer += Time.deltaTime;
         if(timer > spawnInterval)
         {
-            //delete
-            ProgressionManager.progressionManager.AddXP(25);
+            //comment asap
+            //ProgressionManager.progressionManager.AddXP(25);
 
             trashToSpawn = 0.2f * (maxTrash - currentBeachTrash);
             for (int i = 0; i < trashToSpawn; i++)
