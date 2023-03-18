@@ -6,31 +6,55 @@ public class RecyclingShopTriggerCollider : MonoBehaviour
 {
     [SerializeField] private UI_RecyclingStorageShop uiStorage;
     [SerializeField] private UI_RecyclingTruckShop uiTruck;
-    //[SerializeField] private RecyclingInfo info;
+    [SerializeField] private Animator fadeAnimator;
+
+    private IShopCustomer shopCustomer;
+    private bool playerIsClose;
+
     private bool shopOpen = false;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        IShopCustomer shopCustomer = collision.GetComponentInParent<IShopCustomer>();
-        if (shopCustomer != null)
+        shopCustomer = collision.GetComponentInParent<IShopCustomer>();
+        if (collision.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                uiStorage.Show(shopCustomer);
-                uiTruck.Show(shopCustomer);
-                shopOpen = true;
-            }
+            playerIsClose = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerIsClose = false;
         }
     }
 
     private void Update()
     {
-        if (!shopOpen) { return; }
-
-        if (Input.GetKeyDown("escape"))
+        if (!shopOpen)
         {
-            uiStorage.Hide();
-            uiTruck.Hide();
+            if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
+            {
+                uiStorage.Show(shopCustomer);
+                uiTruck.Show(shopCustomer);
+                fadeAnimator.SetBool("PauseEnabled", true);
+
+                shopOpen = true;
+                shopCustomer.DisableMovement();
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown("escape"))
+            {
+                uiStorage.Hide();
+                uiTruck.Hide();
+                fadeAnimator.SetBool("PauseEnabled", false);
+
+                shopOpen = false;
+                shopCustomer.EnableMovement();
+            }
         }
     }
 

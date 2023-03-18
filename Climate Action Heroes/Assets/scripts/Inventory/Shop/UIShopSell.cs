@@ -12,18 +12,29 @@ public class UIShopSell : MonoBehaviour
     private Button sell1;
     private Button sellAll;
 
+    private bool animationPlaying = false;
+    [SerializeField] private Animator BGAnimator;
+
     private int itemIndex;
 
     private void Awake()
     {
-        Hide();
-
         sellBG = transform.Find("Sell_BG");
         sell1 = sellBG.Find("Sell1_Button").GetComponent<Button>();
         sellAll = sellBG.Find("Sell2_Button").GetComponent<Button>();
 
         sell1.interactable = false;
         sellAll.interactable = false;
+    }
+
+    private void Start()
+    {
+        Invoke("DelayedStart", 0.01f);
+    }
+
+    private void DelayedStart()
+    {
+        this.gameObject.SetActive(false);
     }
 
     public void setItemForSale(int index)
@@ -42,11 +53,36 @@ public class UIShopSell : MonoBehaviour
     public void Show(IShopCustomer shopCustomer)
     {
         this.shopCustomer = shopCustomer;
-        gameObject.SetActive(true);
+        if (!animationPlaying)
+        {
+            this.gameObject.SetActive(true);
+
+            BGAnimator.SetBool("MenuOpen", true);
+
+            StartCoroutine("WaitForAnimation");
+        }
+    }
+
+    private IEnumerator WaitForAnimation()
+    {
+        animationPlaying = true;
+
+        yield return new WaitForSeconds(1);
+
+        animationPlaying = false;
+        if (!BGAnimator.GetBool("MenuOpen"))
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        if (!animationPlaying)
+        {
+            BGAnimator.SetBool("MenuOpen", false);
+
+            StartCoroutine("WaitForAnimation");
+        }
     }
 }

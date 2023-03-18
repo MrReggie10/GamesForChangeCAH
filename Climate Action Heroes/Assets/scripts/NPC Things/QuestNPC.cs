@@ -7,6 +7,7 @@ using TMPro;
 public class QuestNPC : MonoBehaviour
 {
     [SerializeField] private GameObject quest;
+    [SerializeField] private GameObject blockingObject;
 
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
@@ -156,6 +157,11 @@ public class QuestNPC : MonoBehaviour
         }
         else
         {
+            if (blockingObject != null)
+            {
+                Destroy(blockingObject);
+            }
+
             if (dialogueText.text == afterPostDialogue[index].getText())
             {
                 if (Input.GetMouseButtonDown(0))

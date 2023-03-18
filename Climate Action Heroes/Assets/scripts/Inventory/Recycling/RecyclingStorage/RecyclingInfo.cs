@@ -4,18 +4,51 @@ using UnityEngine;
 
 public class RecyclingInfo : MonoBehaviour
 {
+    private bool animationPlaying = false;
+    [SerializeField] private Animator BGAnimator;
+
     private void Start()
     {
-        Hide();
+        Invoke("DelayedStart", 0.01f);
+    }
+
+    private void DelayedStart()
+    {
+        this.gameObject.SetActive(false);
     }
 
     public void Show()
     {
-        gameObject.SetActive(true);
+        if (!animationPlaying)
+        {
+            this.gameObject.SetActive(true);
+
+            BGAnimator.SetBool("MenuOpen", true);
+
+            StartCoroutine("WaitForAnimation");
+        }
+    }
+
+    private IEnumerator WaitForAnimation()
+    {
+        animationPlaying = true;
+
+        yield return new WaitForSeconds(1);
+
+        animationPlaying = false;
+        if (!BGAnimator.GetBool("MenuOpen"))
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        if (!animationPlaying)
+        {
+            BGAnimator.SetBool("MenuOpen", false);
+
+            StartCoroutine("WaitForAnimation");
+        }
     }
 }

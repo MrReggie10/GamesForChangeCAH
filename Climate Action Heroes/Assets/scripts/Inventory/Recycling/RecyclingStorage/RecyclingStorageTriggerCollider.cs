@@ -7,32 +7,57 @@ public class RecyclingStorageTriggerCollider : MonoBehaviour
     [SerializeField] private UI_RecyclingStorage uiRecycling;
     [SerializeField] private UI_Inventory uiInventory;
     [SerializeField] private RecyclingInfo info;
+    [SerializeField] private Animator fadeAnimator;
+
+    private IShopCustomer shopCustomer;
+    private bool playerIsClose;
+
     private bool shopOpen = false;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        IShopCustomer shopCustomer = collision.GetComponentInParent<IShopCustomer>();
-        if (shopCustomer != null)
+        shopCustomer = collision.GetComponentInParent<IShopCustomer>();
+        if (collision.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                uiRecycling.Show(shopCustomer);
-                uiInventory.Show(shopCustomer);
-                info.Show();
-                shopOpen = true;
-            }
+            playerIsClose = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerIsClose = false;
         }
     }
 
     private void Update()
     {
-        if (!shopOpen) { return; }
-
-        if (Input.GetKeyDown("escape"))
+        if (!shopOpen)
         {
-            uiRecycling.Hide();
-            uiInventory.Hide();
-            info.Hide();
+            if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
+            {
+                uiRecycling.Show(shopCustomer);
+                uiInventory.Show(shopCustomer);
+                info.Show();
+                fadeAnimator.SetBool("PauseEnabled", true);
+
+                shopOpen = true;
+                shopCustomer.DisableMovement();
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown("escape"))
+            {
+                uiRecycling.Hide();
+                uiInventory.Hide();
+                info.Hide();
+                fadeAnimator.SetBool("PauseEnabled", false);
+
+                shopOpen = false;
+                shopCustomer.EnableMovement();
+            }
         }
     }
 

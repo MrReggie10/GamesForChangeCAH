@@ -46,6 +46,10 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         {
             ProcessInputs();
         }
+        else
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
     }
 
     void FixedUpdate()
@@ -53,6 +57,10 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         if(canMove)
         {
             Move();
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, 0);
         }
     }
 
@@ -259,10 +267,12 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
     void IShopCustomer.DisableMovement()
     {
         canMove = false;
+        moveSpeed = 0;
     }
 
     void IShopCustomer.EnableMovement()
     {
         canMove = true;
+        moveSpeed = 5;
     }
 }

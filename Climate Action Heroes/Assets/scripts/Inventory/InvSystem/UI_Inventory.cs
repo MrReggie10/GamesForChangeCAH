@@ -15,6 +15,9 @@ public class UI_Inventory : MonoBehaviour
     [SerializeField] private UI_WeightCounter weightCounter;
     [SerializeField] private UIShopSell uiShopSell;
 
+    private bool animationPlaying = false;
+    [SerializeField] private Animator BGAnimator;
+
     private IShopCustomer shopCustomer;
 
     public void Awake()
@@ -26,7 +29,12 @@ public class UI_Inventory : MonoBehaviour
 
     private void Start()
     {
-        Hide();
+        Invoke("DelayedStart", 0.01f);
+    }
+
+    private void DelayedStart()
+    {
+        this.gameObject.SetActive(false);
     }
 
     public void SetInventory(InventorySystem inventory)
@@ -90,12 +98,37 @@ public class UI_Inventory : MonoBehaviour
     public void Show(IShopCustomer shopCustomer)
     {
         this.shopCustomer = shopCustomer;
-        gameObject.SetActive(true);
+        if (!animationPlaying)
+        {
+            this.gameObject.SetActive(true);
+
+            BGAnimator.SetBool("MenuOpen", true);
+
+            StartCoroutine("WaitForAnimation");
+        }
+    }
+
+    private IEnumerator WaitForAnimation()
+    {
+        animationPlaying = true;
+
+        yield return new WaitForSeconds(1);
+
+        animationPlaying = false;
+        if (!BGAnimator.GetBool("MenuOpen"))
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        if (!animationPlaying)
+        {
+            BGAnimator.SetBool("MenuOpen", false);
+
+            StartCoroutine("WaitForAnimation");
+        }
     }
 
 }

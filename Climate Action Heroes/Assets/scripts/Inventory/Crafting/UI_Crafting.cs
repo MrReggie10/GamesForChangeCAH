@@ -13,6 +13,10 @@ public class UI_Crafting : MonoBehaviour
     private Transform bg;
     private Transform container;
     private Transform button;
+
+    private bool animationPlaying = false;
+    [SerializeField] private Animator BGAnimator;
+
     private IShopCustomer shopCustomer;
 
     private void Awake()
@@ -59,7 +63,7 @@ public class UI_Crafting : MonoBehaviour
             CreateItemButton(item.itemType, item.getSprite(), item.getName(), Item.getRecipe(item.itemType));
         }
 
-        Hide();
+        this.gameObject.SetActive(false);
     }
     
     private void CreateItemButton(Item.ItemType type, Sprite itemSprite, string itemName, List<Item> items)
@@ -116,11 +120,36 @@ public class UI_Crafting : MonoBehaviour
     public void Show(IShopCustomer shopCustomer)
     {
         this.shopCustomer = shopCustomer;
-        gameObject.SetActive(true);
+        if (!animationPlaying)
+        {
+            this.gameObject.SetActive(true);
+
+            BGAnimator.SetBool("MenuOpen", true);
+
+            StartCoroutine("WaitForAnimation");
+        }
+    }
+
+    private IEnumerator WaitForAnimation()
+    {
+        animationPlaying = true;
+
+        yield return new WaitForSeconds(1);
+
+        animationPlaying = false;
+        if (!BGAnimator.GetBool("MenuOpen"))
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        if (!animationPlaying)
+        {
+            BGAnimator.SetBool("MenuOpen", false);
+
+            StartCoroutine("WaitForAnimation");
+        }
     }
 }

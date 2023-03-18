@@ -10,13 +10,18 @@ public class UIShop : MonoBehaviour
     [SerializeField] private Item[] itemArray;
     private List<GameObject> buttonArray = new List<GameObject>();
 
+    private Transform shopBG;
     private Transform container;
     private GameObject button;
     private IShopCustomer shopCustomer;
 
+    private bool animationPlaying = false;
+    [SerializeField] private Animator BGAnimator;
+
     private void Awake()
     {
-        container = transform. Find("ShopMenuBuy_Container");
+        shopBG = transform.Find("ShopMenuBuy_BG");
+        container = shopBG.transform.Find("ShopMenuBuy_Container");
         button = container.transform.Find("ShopMenuBuy_Button").gameObject;
         button.gameObject.SetActive(false);
 
@@ -57,7 +62,7 @@ public class UIShop : MonoBehaviour
             CreateItemButton(item.itemType, item.getName(), Item.getBuy(item.itemType));
         }
 
-        Hide();
+        this.gameObject.SetActive(false);
     }
 
     private void CreateItemButton(Item.ItemType type, string itemName, int itemCost)
@@ -103,11 +108,36 @@ public class UIShop : MonoBehaviour
     public void Show(IShopCustomer shopCustomer)
     {
         this.shopCustomer = shopCustomer;
-        gameObject.SetActive(true);
+        if (!animationPlaying)
+        {
+            this.gameObject.SetActive(true);
+
+            BGAnimator.SetBool("MenuOpen", true);
+
+            StartCoroutine("WaitForAnimation");
+        }
+    }
+
+    private IEnumerator WaitForAnimation()
+    {
+        animationPlaying = true;
+
+        yield return new WaitForSeconds(1);
+
+        animationPlaying = false;
+        if (!BGAnimator.GetBool("MenuOpen"))
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        if (!animationPlaying)
+        {
+            BGAnimator.SetBool("MenuOpen", false);
+
+            StartCoroutine("WaitForAnimation");
+        }
     }
 }

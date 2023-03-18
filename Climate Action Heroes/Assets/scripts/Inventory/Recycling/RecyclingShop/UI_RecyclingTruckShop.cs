@@ -18,6 +18,9 @@ public class UI_RecyclingTruckShop : MonoBehaviour
     [SerializeField] private int[] truckUpgrades;
     private int counter = 0;
 
+    private bool animationPlaying = false;
+    [SerializeField] private Animator BGAnimator;
+
     private IShopCustomer shopCustomer;
 
     private void Awake()
@@ -37,7 +40,12 @@ public class UI_RecyclingTruckShop : MonoBehaviour
 
     private void Start()
     {
-        Hide();
+        Invoke("DelayedStart", 0.01f);
+    }
+
+    private void DelayedStart()
+    {
+        this.gameObject.SetActive(false);
     }
 
     private void TryUpdateTrucks()
@@ -64,12 +72,37 @@ public class UI_RecyclingTruckShop : MonoBehaviour
     public void Show(IShopCustomer shopCustomer)
     {
         this.shopCustomer = shopCustomer;
-        gameObject.SetActive(true);
+        if (!animationPlaying)
+        {
+            this.gameObject.SetActive(true);
+
+            BGAnimator.SetBool("MenuOpen", true);
+
+            StartCoroutine("WaitForAnimation");
+        }
+    }
+
+    private IEnumerator WaitForAnimation()
+    {
+        animationPlaying = true;
+
+        yield return new WaitForSeconds(1);
+
+        animationPlaying = false;
+        if (!BGAnimator.GetBool("MenuOpen"))
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        if (!animationPlaying)
+        {
+            BGAnimator.SetBool("MenuOpen", false);
+
+            StartCoroutine("WaitForAnimation");
+        }
     }
 }
 
