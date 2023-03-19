@@ -48,11 +48,17 @@ public class ProgressionManager : MonoBehaviour
         {
             Destroy(smog2);
             neededXP = 125;
+            StateManager.stateManager.SetState(1);
         }
         else if(phase == 3)
         {
             Destroy(smog3);
             neededXP = 450;
+            StateManager.stateManager.SetState(2);
+        }
+        else
+        {
+            StateManager.stateManager.SetState(5);
         }
 
         xpText.SetText(totalXP + "/" + neededXP);
