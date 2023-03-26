@@ -60,7 +60,7 @@ public class NPC : MonoBehaviour
                         playerName.SetActive(true);
                         playerImg.SetActive(true);
                     }
-                    else
+                    else if (dialogueState0[index].characterType == DialogType.CharacterType.npc)
                     {
                         npcName.SetActive(true);
                         npcImg.SetActive(true);
@@ -78,7 +78,7 @@ public class NPC : MonoBehaviour
                         playerName.SetActive(true);
                         playerImg.SetActive(true);
                     }
-                    else
+                    else if (dialogueState1[index].characterType == DialogType.CharacterType.npc)
                     {
                         npcName.SetActive(true);
                         npcImg.SetActive(true);
@@ -96,7 +96,7 @@ public class NPC : MonoBehaviour
                         playerName.SetActive(true);
                         playerImg.SetActive(true);
                     }
-                    else
+                    else if (dialogueState2[index].characterType == DialogType.CharacterType.npc)
                     {
                         npcName.SetActive(true);
                         npcImg.SetActive(true);
@@ -114,7 +114,7 @@ public class NPC : MonoBehaviour
                         playerName.SetActive(true);
                         playerImg.SetActive(true);
                     }
-                    else
+                    else if (talkedAboutMayorDialog[index].characterType == DialogType.CharacterType.npc)
                     {
                         npcName.SetActive(true);
                         npcImg.SetActive(true);
@@ -132,7 +132,7 @@ public class NPC : MonoBehaviour
                         playerName.SetActive(true);
                         playerImg.SetActive(true);
                     }
-                    else
+                    else if (dialogueState3[index].characterType == DialogType.CharacterType.npc)
                     {
                         npcName.SetActive(true);
                         npcImg.SetActive(true);
@@ -150,7 +150,7 @@ public class NPC : MonoBehaviour
                         playerName.SetActive(true);
                         playerImg.SetActive(true);
                     }
-                    else
+                    else if (dialogueState4[index].characterType == DialogType.CharacterType.npc)
                     {
                         npcName.SetActive(true);
                         npcImg.SetActive(true);
@@ -168,7 +168,7 @@ public class NPC : MonoBehaviour
                         playerName.SetActive(true);
                         playerImg.SetActive(true);
                     }
-                    else
+                    else if(dialogueState5[index].characterType == DialogType.CharacterType.npc)
                     {
                         npcName.SetActive(true);
                         npcImg.SetActive(true);
@@ -383,7 +383,7 @@ public class NPC : MonoBehaviour
                     playerName.SetActive(true);
                     playerImg.SetActive(true);
                 }
-                else
+                else if ((dialogueState0[index].characterType == DialogType.CharacterType.npc))
                 {
                     npcName.SetActive(true);
                     npcImg.SetActive(true);
@@ -418,7 +418,7 @@ public class NPC : MonoBehaviour
                     playerName.SetActive(true);
                     playerImg.SetActive(true);
                 }
-                else
+                else if ((dialogueState1[index].characterType == DialogType.CharacterType.npc))
                 {
                     npcName.SetActive(true);
                     npcImg.SetActive(true);
@@ -453,7 +453,7 @@ public class NPC : MonoBehaviour
                     playerName.SetActive(true);
                     playerImg.SetActive(true);
                 }
-                else
+                else if ((dialogueState2[index].characterType == DialogType.CharacterType.npc))
                 {
                     npcName.SetActive(true);
                     npcImg.SetActive(true);
@@ -488,7 +488,7 @@ public class NPC : MonoBehaviour
                     playerName.SetActive(true);
                     playerImg.SetActive(true);
                 }
-                else
+                else if ((talkedAboutMayorDialog[index].characterType == DialogType.CharacterType.npc))
                 {
                     npcName.SetActive(true);
                     npcImg.SetActive(true);
@@ -523,7 +523,7 @@ public class NPC : MonoBehaviour
                     playerName.SetActive(true);
                     playerImg.SetActive(true);
                 }
-                else
+                else if ((dialogueState3[index].characterType == DialogType.CharacterType.npc))
                 {
                     npcName.SetActive(true);
                     npcImg.SetActive(true);
@@ -558,7 +558,7 @@ public class NPC : MonoBehaviour
                     playerName.SetActive(true);
                     playerImg.SetActive(true);
                 }
-                else
+                else if ((dialogueState4[index].characterType == DialogType.CharacterType.npc))
                 {
                     npcName.SetActive(true);
                     npcImg.SetActive(true);
@@ -593,7 +593,7 @@ public class NPC : MonoBehaviour
                     playerName.SetActive(true);
                     playerImg.SetActive(true);
                 }
-                else
+                else if((dialogueState5[index].characterType == DialogType.CharacterType.npc))
                 {
                     npcName.SetActive(true);
                     npcImg.SetActive(true);

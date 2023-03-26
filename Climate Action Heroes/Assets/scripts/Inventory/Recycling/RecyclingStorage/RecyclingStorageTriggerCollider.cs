@@ -48,7 +48,7 @@ public class RecyclingStorageTriggerCollider : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown("escape"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 uiRecycling.Hide();
                 uiInventory.Hide();

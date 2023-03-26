@@ -96,10 +96,10 @@ public class Bikes
         switch (bikeType)
         {
             default:
-            case BikeType.blue_bike:    return 25f;
-            case BikeType.red_bike:     return 50f;
+            case BikeType.blue_bike:    return 20f;
+            case BikeType.red_bike:     return 40f;
             case BikeType.electric_bike:return 100f;
-            case BikeType.rainbow_bike: return 500f;
+            case BikeType.rainbow_bike: return 250f;
         }
     }
 
@@ -108,10 +108,10 @@ public class Bikes
         switch (bikeTypeStatic)
         {
             default:
-            case BikeType.blue_bike:    return 25f;
-            case BikeType.red_bike:     return 50f;
+            case BikeType.blue_bike:    return 20f;
+            case BikeType.red_bike:     return 40f;
             case BikeType.electric_bike:return 100f;
-            case BikeType.rainbow_bike: return 500f;
+            case BikeType.rainbow_bike: return 250f;
         }
     }
 
@@ -122,8 +122,8 @@ public class Bikes
             default:
             case BikeType.blue_bike:    return 7f;
             case BikeType.red_bike:     return 10f;
-            case BikeType.electric_bike:return 15f;
-            case BikeType.rainbow_bike: return 30f;
+            case BikeType.electric_bike:return 13f;
+            case BikeType.rainbow_bike: return 20f;
         }
     }
 
@@ -134,8 +134,8 @@ public class Bikes
             default:
             case BikeType.blue_bike:    return 7f;
             case BikeType.red_bike:     return 10f;
-            case BikeType.electric_bike:return 15f;
-            case BikeType.rainbow_bike: return 30f;
+            case BikeType.electric_bike:return 13f;
+            case BikeType.rainbow_bike: return 20f;
         }
     }
 

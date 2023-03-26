@@ -44,7 +44,7 @@ public class BikeTrigger : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown("escape"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 uiBike.Hide();
                 fadeAnimator.SetBool("PauseEnabled", false);

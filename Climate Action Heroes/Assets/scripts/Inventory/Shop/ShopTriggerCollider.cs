@@ -48,7 +48,7 @@ public class ShopTriggerCollider : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown("escape"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 uiShop.Hide();
                 uiInventory.Hide();

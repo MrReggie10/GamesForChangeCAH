@@ -78,7 +78,7 @@ public class QuestNPC : MonoBehaviour
                         playerName.SetActive(true);
                         playerImg.SetActive(true);
                     }
-                    else
+                    else if (afterPreDialogue[index].characterType == DialogType.CharacterType.npc)
                     {
                         npcName.SetActive(true);
                         npcImg.SetActive(true);
@@ -96,7 +96,7 @@ public class QuestNPC : MonoBehaviour
                         playerName.SetActive(true);
                         playerImg.SetActive(true);
                     }
-                    else
+                    else if (postDialogue[index].characterType == DialogType.CharacterType.npc)
                     {
                         npcName.SetActive(true);
                         npcImg.SetActive(true);
@@ -114,7 +114,7 @@ public class QuestNPC : MonoBehaviour
                         playerName.SetActive(true);
                         playerImg.SetActive(true);
                     }
-                    else
+                    else if (afterPostDialogue[index].characterType == DialogType.CharacterType.npc)
                     {
                         npcName.SetActive(true);
                         npcImg.SetActive(true);
@@ -279,7 +279,7 @@ public class QuestNPC : MonoBehaviour
                     playerName.SetActive(true);
                     playerImg.SetActive(true);
                 }
-                else
+                else if (preDialogue[index].characterType == DialogType.CharacterType.npc)
                 {
                     npcName.SetActive(true);
                     npcImg.SetActive(true);
@@ -349,7 +349,7 @@ public class QuestNPC : MonoBehaviour
                     playerName.SetActive(true);
                     playerImg.SetActive(true);
                 }
-                else
+                else if (postDialogue[index].characterType == DialogType.CharacterType.npc)
                 {
                     npcName.SetActive(true);
                     npcImg.SetActive(true);
@@ -384,7 +384,7 @@ public class QuestNPC : MonoBehaviour
                     playerName.SetActive(true);
                     playerImg.SetActive(true);
                 }
-                else
+                else if (afterPostDialogue[index].characterType == DialogType.CharacterType.npc)
                 {
                     npcName.SetActive(true);
                     npcImg.SetActive(true);

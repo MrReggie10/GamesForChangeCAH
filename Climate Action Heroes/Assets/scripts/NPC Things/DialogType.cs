@@ -9,7 +9,7 @@ public class DialogType
     public enum CharacterType
     {
         player,
-        npc
+        npc,
     }
 
     public CharacterType characterType;

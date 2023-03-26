@@ -7,10 +7,29 @@ public class BuildingTrigger : MonoBehaviour
     [SerializeField] private BuildingStates.States buildingType;
     private Item heldBuilding;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private bool playerIsClose;
+    private IShopCustomer shopCustomer;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        IShopCustomer shopCustomer = collision.GetComponentInParent<IShopCustomer>();
-        if (shopCustomer != null)
+        shopCustomer = collision.GetComponentInParent<IShopCustomer>();
+        if (collision.CompareTag("Player"))
+        {
+            playerIsClose = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerIsClose = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (playerIsClose)
         {
             if(heldBuilding != null)
             {

@@ -21,6 +21,9 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
     [SerializeField] private UI_CashAmount uiCashAmount;
     [SerializeField] private UI_WeightCounter uiWeightCounter;
     [SerializeField] private float maxWeight;
+    [SerializeField] private InventoryTrigger uiTrigger;
+
+    [SerializeField] private Animator playerAnim;
 
     public event EventHandler OnCashAmountChanged;
 
@@ -42,9 +45,10 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
 
     void Update()
     {
-        if(canMove)
+        ProcessInputs();
+        if (canMove)
         {
-            ProcessInputs();
+            UpdateSprite();
         }
         else
         {
@@ -101,6 +105,11 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
                 moveSpeed = 5;
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            uiTrigger.OpenShop(this);
+        }
     }
 
     private void Move()
@@ -110,7 +119,18 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
 
     private void UpdateSprite()
     {
+        playerAnim.SetFloat("SpeedX", Mathf.Abs(rb.velocity.x));
+        playerAnim.SetFloat("SpeedY", rb.velocity.y);
 
+        if(rb.velocity.x > 0)
+        {
+            playerAnim.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if(rb.velocity.x < 0)
+        {
+            playerAnim.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        
     }
 
     //buying items

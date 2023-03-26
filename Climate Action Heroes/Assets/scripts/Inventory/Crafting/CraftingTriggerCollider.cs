@@ -46,7 +46,7 @@ public class CraftingTriggerCollider : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown("escape"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 uiCraft.Hide();
                 uiInventory.Hide();

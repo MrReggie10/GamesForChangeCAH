@@ -6,16 +6,38 @@ public class GateTrigger : MonoBehaviour
 {
     [SerializeField] private int moneyToOpen;
     [SerializeField] private GameObject gate;
-    private IShopCustomer shopCustomer;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private IShopCustomer shopCustomer;
+    private bool playerIsClose;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        IShopCustomer shopCustomer = collision.GetComponentInParent<IShopCustomer>();
-        if (Input.GetKeyDown(KeyCode.E))
+        shopCustomer = collision.GetComponentInParent<IShopCustomer>();
+        if (collision.CompareTag("Player"))
         {
-            if(shopCustomer.TrySpendCashAmount(moneyToOpen))
+            playerIsClose = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerIsClose = false;
+        }
+    }
+
+    private void Update()
+    {
+        if(playerIsClose)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                gate.SetActive(false);
+                if (shopCustomer.TrySpendCashAmount(moneyToOpen))
+                {
+                    gate.SetActive(false);
+                    Destroy(this.gameObject);
+                }
             }
         }
     }

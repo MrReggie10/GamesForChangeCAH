@@ -46,7 +46,7 @@ public class RecyclingShopTriggerCollider : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown("escape"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 uiStorage.Hide();
                 uiTruck.Hide();
