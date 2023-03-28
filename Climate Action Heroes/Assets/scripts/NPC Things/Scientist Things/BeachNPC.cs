@@ -37,6 +37,7 @@ public class BeachNPC : MonoBehaviour
     [SerializeField] private GameObject progressionMenu;
 
     private IShopCustomer shopCustomer;
+    [SerializeField] private WalkController walkController;
 
     // Update is called once per frame
     void Update()
@@ -177,6 +178,12 @@ public class BeachNPC : MonoBehaviour
         if (state == 0 || state == 2)
         {
             state++;
+        }
+
+        if(state == 3)
+        {
+            walkController.WalkToShop();
+            playerIsClose = false;
         }
     }
 

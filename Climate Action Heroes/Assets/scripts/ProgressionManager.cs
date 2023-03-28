@@ -69,4 +69,8 @@ public class ProgressionManager : MonoBehaviour
     {
         return phase;
     }
+    public int GetTotalXP()
+    {
+        return totalXP;
+    }
 }
