@@ -32,7 +32,7 @@ public class RecyclingManager : MonoBehaviour
         if(timer >= spawnTime)
         {
             //delete
-            ProgressionManager.progressionManager.AddXP(15);
+            //ProgressionManager.progressionManager.AddXP(15);
 
             timer = 0;
             for (int i = 0; i < currentTrucks*2; i++)

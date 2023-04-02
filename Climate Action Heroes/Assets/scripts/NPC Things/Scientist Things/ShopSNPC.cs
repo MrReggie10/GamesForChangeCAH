@@ -23,6 +23,9 @@ public class ShopSNPC : MonoBehaviour
     [SerializeField] private List<DialogType> dialogueState0;
     private int index;
 
+    [SerializeField] private GameObject speechGrid;
+    private bool talking;
+
     [SerializeField] private float wordSpeed;
     [SerializeField] private bool playerIsClose;
     [SerializeField] private bool endLineEarly = false;
@@ -35,8 +38,18 @@ public class ShopSNPC : MonoBehaviour
     {
         if (playerIsClose)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if (!talking)
             {
+                speechGrid.SetActive(true);
+            }
+            else
+            {
+                speechGrid.SetActive(false);
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                talking = true;
                 shopCustomer.DisableMovement();
 
                 if (!dialoguePanel.activeInHierarchy)
@@ -65,6 +78,11 @@ public class ShopSNPC : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            speechGrid.SetActive(false);
+        }
+
         if (dialogueText.text == dialogueState0[index].getText())
         {
             if (Input.GetMouseButtonDown(0))
@@ -85,6 +103,7 @@ public class ShopSNPC : MonoBehaviour
         npcName.SetActive(false);
         npcImg.SetActive(false);
 
+        talking = false;
         shopCustomer.EnableMovement();
         walkController.WalkToPark();
         playerIsClose = false;
@@ -153,7 +172,6 @@ public class ShopSNPC : MonoBehaviour
         {
             StopCoroutine(Typing());
             playerIsClose = false;
-            zeroText();
         }
     }
 }

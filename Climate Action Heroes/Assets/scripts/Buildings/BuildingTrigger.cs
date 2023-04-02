@@ -18,6 +18,8 @@ public class BuildingTrigger : MonoBehaviour
     [SerializeField] private float yPos;
     [SerializeField] private GameObject player;
 
+    [SerializeField] private GameObject speechGrid;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         shopCustomer = collision.GetComponentInParent<IShopCustomer>();
@@ -54,6 +56,8 @@ public class BuildingTrigger : MonoBehaviour
         {
             if(heldBuilding != null)
             {
+                speechGrid.SetActive(true);
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     switch (buildingType)
@@ -132,6 +136,7 @@ public class BuildingTrigger : MonoBehaviour
             }
             else
             {
+                speechGrid.SetActive(false);
                 foreach (Item item in shopCustomer.GetInventorySystem().getItemList())
                 {
                     if (item.getName().Equals(BuildingStates.GetNextUpgradeName(buildingType)))
@@ -141,6 +146,10 @@ public class BuildingTrigger : MonoBehaviour
                     }
                 }
             }
+        }
+        else
+        {
+            speechGrid.SetActive(false);
         }
     }
 }

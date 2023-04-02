@@ -28,6 +28,9 @@ public class NPC : MonoBehaviour
     [SerializeField] private List<DialogType> dialogueState5;
     private int index;
     private bool talkedAboutMayor = false;
+
+    [SerializeField] private GameObject speechGrid;
+    private bool talking;
     
     [SerializeField] private float wordSpeed;
     [SerializeField] private bool playerIsClose;
@@ -38,147 +41,166 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && playerIsClose)
+
+        if (playerIsClose)
         {
-            shopCustomer.DisableMovement();
-
-            if (!dialoguePanel.activeInHierarchy)
+            if(!talking)
             {
-                index = 0;
-                dialogueText.text = "";
-                dialoguePanel.SetActive(true);
-
-                if (StateManager.stateManager.GetState() == 0)
-                {
-                    npcNameText.SetText(dialogueState0[index].getCharacterName());
-                    playerNameText.SetText(dialogueState0[index].getCharacterName());
-                    npcImage.sprite = dialogueState0[index].getCharacterSprite();
-                    playerImage.sprite = dialogueState0[index].getCharacterSprite();
-
-                    if (dialogueState0[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else if (dialogueState0[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-                else if (StateManager.stateManager.GetState() == 1)
-                {
-                    npcNameText.SetText(dialogueState1[index].getCharacterName());
-                    playerNameText.SetText(dialogueState1[index].getCharacterName());
-                    npcImage.sprite = dialogueState1[index].getCharacterSprite();
-                    playerImage.sprite = dialogueState1[index].getCharacterSprite();
-
-                    if (dialogueState1[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else if (dialogueState1[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-                else if (StateManager.stateManager.GetState() == 2)
-                {
-                    npcNameText.SetText(dialogueState2[index].getCharacterName());
-                    playerNameText.SetText(dialogueState2[index].getCharacterName());
-                    npcImage.sprite = dialogueState2[index].getCharacterSprite();
-                    playerImage.sprite = dialogueState2[index].getCharacterSprite();
-
-                    if (dialogueState2[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else if (dialogueState2[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-                else if (StateManager.stateManager.GetState() == 3 && talkedAboutMayor)
-                {
-                    npcNameText.SetText(talkedAboutMayorDialog[index].getCharacterName());
-                    playerNameText.SetText(talkedAboutMayorDialog[index].getCharacterName());
-                    npcImage.sprite = talkedAboutMayorDialog[index].getCharacterSprite();
-                    playerImage.sprite = talkedAboutMayorDialog[index].getCharacterSprite();
-
-                    if (talkedAboutMayorDialog[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else if (talkedAboutMayorDialog[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-                else if (StateManager.stateManager.GetState() == 3)
-                {
-                    npcNameText.SetText(dialogueState3[index].getCharacterName());
-                    playerNameText.SetText(dialogueState3[index].getCharacterName());
-                    npcImage.sprite = dialogueState3[index].getCharacterSprite();
-                    playerImage.sprite = dialogueState3[index].getCharacterSprite();
-
-                    if (dialogueState3[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else if (dialogueState3[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-                else if (StateManager.stateManager.GetState() == 4)
-                {
-                    npcNameText.SetText(dialogueState4[index].getCharacterName());
-                    playerNameText.SetText(dialogueState4[index].getCharacterName());
-                    npcImage.sprite = dialogueState4[index].getCharacterSprite();
-                    playerImage.sprite = dialogueState4[index].getCharacterSprite();
-
-                    if (dialogueState4[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else if (dialogueState4[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-                else if (StateManager.stateManager.GetState() == 5)
-                {
-                    npcNameText.SetText(dialogueState5[index].getCharacterName());
-                    playerNameText.SetText(dialogueState5[index].getCharacterName());
-                    npcImage.sprite = dialogueState5[index].getCharacterSprite();
-                    playerImage.sprite = dialogueState5[index].getCharacterSprite();
-
-                    if (dialogueState5[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else if(dialogueState5[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-
-                StartCoroutine(Typing());
+                speechGrid.SetActive(true);
             }
-            
+            else
+            {
+                speechGrid.SetActive(false);
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                talking = true;
+                shopCustomer.DisableMovement();
+
+                if (!dialoguePanel.activeInHierarchy)
+                {
+                    index = 0;
+                    dialogueText.text = "";
+                    dialoguePanel.SetActive(true);
+
+                    if (StateManager.stateManager.GetState() == 0)
+                    {
+                        npcNameText.SetText(dialogueState0[index].getCharacterName());
+                        playerNameText.SetText(dialogueState0[index].getCharacterName());
+                        npcImage.sprite = dialogueState0[index].getCharacterSprite();
+                        playerImage.sprite = dialogueState0[index].getCharacterSprite();
+
+                        if (dialogueState0[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (dialogueState0[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+                    else if (StateManager.stateManager.GetState() == 1)
+                    {
+                        npcNameText.SetText(dialogueState1[index].getCharacterName());
+                        playerNameText.SetText(dialogueState1[index].getCharacterName());
+                        npcImage.sprite = dialogueState1[index].getCharacterSprite();
+                        playerImage.sprite = dialogueState1[index].getCharacterSprite();
+
+                        if (dialogueState1[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (dialogueState1[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+                    else if (StateManager.stateManager.GetState() == 2)
+                    {
+                        npcNameText.SetText(dialogueState2[index].getCharacterName());
+                        playerNameText.SetText(dialogueState2[index].getCharacterName());
+                        npcImage.sprite = dialogueState2[index].getCharacterSprite();
+                        playerImage.sprite = dialogueState2[index].getCharacterSprite();
+
+                        if (dialogueState2[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (dialogueState2[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+                    else if (StateManager.stateManager.GetState() == 3 && talkedAboutMayor)
+                    {
+                        npcNameText.SetText(talkedAboutMayorDialog[index].getCharacterName());
+                        playerNameText.SetText(talkedAboutMayorDialog[index].getCharacterName());
+                        npcImage.sprite = talkedAboutMayorDialog[index].getCharacterSprite();
+                        playerImage.sprite = talkedAboutMayorDialog[index].getCharacterSprite();
+
+                        if (talkedAboutMayorDialog[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (talkedAboutMayorDialog[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+                    else if (StateManager.stateManager.GetState() == 3)
+                    {
+                        npcNameText.SetText(dialogueState3[index].getCharacterName());
+                        playerNameText.SetText(dialogueState3[index].getCharacterName());
+                        npcImage.sprite = dialogueState3[index].getCharacterSprite();
+                        playerImage.sprite = dialogueState3[index].getCharacterSprite();
+
+                        if (dialogueState3[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (dialogueState3[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+                    else if (StateManager.stateManager.GetState() == 4)
+                    {
+                        npcNameText.SetText(dialogueState4[index].getCharacterName());
+                        playerNameText.SetText(dialogueState4[index].getCharacterName());
+                        npcImage.sprite = dialogueState4[index].getCharacterSprite();
+                        playerImage.sprite = dialogueState4[index].getCharacterSprite();
+
+                        if (dialogueState4[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (dialogueState4[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+                    else if (StateManager.stateManager.GetState() == 5)
+                    {
+                        npcNameText.SetText(dialogueState5[index].getCharacterName());
+                        playerNameText.SetText(dialogueState5[index].getCharacterName());
+                        npcImage.sprite = dialogueState5[index].getCharacterSprite();
+                        playerImage.sprite = dialogueState5[index].getCharacterSprite();
+
+                        if (dialogueState5[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (dialogueState5[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+
+                    StartCoroutine(Typing());
+                }
+            }
         }
+        else
+        {
+            speechGrid.SetActive(false);
+        }
+
+
         if (StateManager.stateManager.GetState() == 0)
         {
             if (dialogueText.text == dialogueState0[index].getText())
@@ -262,6 +284,7 @@ public class NPC : MonoBehaviour
         npcName.SetActive(false);
         npcImg.SetActive(false);
 
+        talking = false;
         shopCustomer.EnableMovement();
 
         if(StateManager.stateManager.GetState() == 3)

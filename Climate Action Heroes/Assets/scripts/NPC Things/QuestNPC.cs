@@ -29,6 +29,9 @@ public class QuestNPC : MonoBehaviour
     private int state = 0;
     private int index;
 
+    [SerializeField] private GameObject speechGrid;
+    private bool talking;
+
     [SerializeField] private float wordSpeed;
     [SerializeField] private bool playerIsClose;
     [SerializeField] private bool endLineEarly = false;
@@ -38,93 +41,111 @@ public class QuestNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
+        if (playerIsClose)
         {
-            shopCustomer.DisableMovement();
-
-            if (!dialoguePanel.activeInHierarchy)
+            if (!talking)
             {
-                index = 0;
-                dialogueText.text = "";
-                dialoguePanel.SetActive(true);
+                speechGrid.SetActive(true);
+            }
+            else
+            {
+                speechGrid.SetActive(false);
+            }
 
-                if (state == 0)
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                talking = true;
+                shopCustomer.DisableMovement();
+
+                if (!dialoguePanel.activeInHierarchy)
                 {
-                    npcNameText.SetText(preDialogue[index].getCharacterName());
-                    playerNameText.SetText(preDialogue[index].getCharacterName());
-                    npcImage.sprite = preDialogue[index].getCharacterSprite();
-                    playerImage.sprite = preDialogue[index].getCharacterSprite();
+                    index = 0;
+                    dialogueText.text = "";
+                    dialoguePanel.SetActive(true);
 
-                    if (preDialogue[index].characterType == DialogType.CharacterType.player)
+                    if (state == 0)
                     {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
+                        npcNameText.SetText(preDialogue[index].getCharacterName());
+                        playerNameText.SetText(preDialogue[index].getCharacterName());
+                        npcImage.sprite = preDialogue[index].getCharacterSprite();
+                        playerImage.sprite = preDialogue[index].getCharacterSprite();
+
+                        if (preDialogue[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+                    else if (state == 1)
+                    {
+                        npcNameText.SetText(afterPreDialogue[index].getCharacterName());
+                        playerNameText.SetText(afterPreDialogue[index].getCharacterName());
+                        npcImage.sprite = afterPreDialogue[index].getCharacterSprite();
+                        playerImage.sprite = afterPreDialogue[index].getCharacterSprite();
+
+                        if (afterPreDialogue[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (afterPreDialogue[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+                    else if (state == 2)
+                    {
+                        npcNameText.SetText(postDialogue[index].getCharacterName());
+                        playerNameText.SetText(postDialogue[index].getCharacterName());
+                        npcImage.sprite = postDialogue[index].getCharacterSprite();
+                        playerImage.sprite = postDialogue[index].getCharacterSprite();
+
+                        if (postDialogue[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (postDialogue[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
                     }
                     else
                     {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-                else if (state == 1)
-                {
-                    npcNameText.SetText(afterPreDialogue[index].getCharacterName());
-                    playerNameText.SetText(afterPreDialogue[index].getCharacterName());
-                    npcImage.sprite = afterPreDialogue[index].getCharacterSprite();
-                    playerImage.sprite = afterPreDialogue[index].getCharacterSprite();
+                        npcNameText.SetText(afterPostDialogue[index].getCharacterName());
+                        playerNameText.SetText(afterPostDialogue[index].getCharacterName());
+                        npcImage.sprite = afterPostDialogue[index].getCharacterSprite();
+                        playerImage.sprite = afterPostDialogue[index].getCharacterSprite();
 
-                    if (afterPreDialogue[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
+                        if (afterPostDialogue[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (afterPostDialogue[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
                     }
-                    else if (afterPreDialogue[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-                else if (state == 2)
-                {
-                    npcNameText.SetText(postDialogue[index].getCharacterName());
-                    playerNameText.SetText(postDialogue[index].getCharacterName());
-                    npcImage.sprite = postDialogue[index].getCharacterSprite();
-                    playerImage.sprite = postDialogue[index].getCharacterSprite();
 
-                    if (postDialogue[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else if (postDialogue[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
+                    StartCoroutine(Typing());
                 }
-                else
-                {
-                    npcNameText.SetText(afterPostDialogue[index].getCharacterName());
-                    playerNameText.SetText(afterPostDialogue[index].getCharacterName());
-                    npcImage.sprite = afterPostDialogue[index].getCharacterSprite();
-                    playerImage.sprite = afterPostDialogue[index].getCharacterSprite();
-
-                    if (afterPostDialogue[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else if (afterPostDialogue[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-
-                StartCoroutine(Typing());
             }
-
         }
+        else
+        {
+            speechGrid.SetActive(false);
+        }
+
+
         if(state == 0)
         {
             if (dialogueText.text == preDialogue[index].getText())
@@ -185,6 +206,7 @@ public class QuestNPC : MonoBehaviour
         npcName.SetActive(false);
         npcImg.SetActive(false);
 
+        talking = false;
         shopCustomer.EnableMovement();
 
         if (state == 0)

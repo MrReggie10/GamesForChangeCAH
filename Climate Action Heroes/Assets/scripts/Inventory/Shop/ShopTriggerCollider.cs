@@ -9,6 +9,8 @@ public class ShopTriggerCollider : MonoBehaviour
     [SerializeField] private UIShopSell uiSell;
     [SerializeField] private Animator fadeAnimator;
 
+    [SerializeField] private GameObject speechGrid;
+
     private IShopCustomer shopCustomer;
     private bool playerIsClose;
 
@@ -35,19 +37,30 @@ public class ShopTriggerCollider : MonoBehaviour
     {
         if (!shopOpen)
         {
-            if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
+            if (playerIsClose)
             {
-                uiShop.Show(shopCustomer);
-                uiInventory.Show(shopCustomer);
-                uiSell.Show(shopCustomer);
-                fadeAnimator.SetBool("PauseEnabled", true);
+                speechGrid.SetActive(true);
 
-                shopOpen = true;
-                shopCustomer.DisableMovement();
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    uiShop.Show(shopCustomer);
+                    uiInventory.Show(shopCustomer);
+                    uiSell.Show(shopCustomer);
+                    fadeAnimator.SetBool("PauseEnabled", true);
+
+                    shopOpen = true;
+                    shopCustomer.DisableMovement();
+                }
+            }
+            else
+            {
+                speechGrid.SetActive(false);
             }
         }
         else
         {
+            speechGrid.SetActive(false);
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 uiShop.Hide();

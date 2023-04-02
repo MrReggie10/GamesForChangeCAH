@@ -7,6 +7,8 @@ public class GateTrigger : MonoBehaviour
     [SerializeField] private int moneyToOpen;
     [SerializeField] private GameObject gate;
 
+    [SerializeField] private GameObject speechGrid;
+
     private IShopCustomer shopCustomer;
     private bool playerIsClose;
 
@@ -31,6 +33,8 @@ public class GateTrigger : MonoBehaviour
     {
         if(playerIsClose)
         {
+            speechGrid.SetActive(true);
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (shopCustomer.TrySpendCashAmount(moneyToOpen))
@@ -39,6 +43,10 @@ public class GateTrigger : MonoBehaviour
                     Destroy(this.gameObject);
                 }
             }
+        }
+        else
+        {
+            speechGrid.SetActive(false);
         }
     }
 }

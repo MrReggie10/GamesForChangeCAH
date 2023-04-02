@@ -28,6 +28,9 @@ public class BeachNPC : MonoBehaviour
     private int state = 0;
     private int index;
 
+    [SerializeField] private GameObject speechGrid;
+    private bool talking;
+
     [SerializeField] private float wordSpeed;
     [SerializeField] private bool playerIsClose;
     [SerializeField] private bool endLineEarly = false;
@@ -42,75 +45,92 @@ public class BeachNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
+        if (playerIsClose)
         {
-            shopCustomer.DisableMovement();
-
-            if (!dialoguePanel.activeInHierarchy)
+            if (!talking)
             {
-                index = 0;
-                dialogueText.text = "";
-                dialoguePanel.SetActive(true);
-
-                if (state == 0)
-                {
-                    npcNameText.SetText(preDialogue[index].getCharacterName());
-                    playerNameText.SetText(preDialogue[index].getCharacterName());
-                    npcImage.sprite = preDialogue[index].getCharacterSprite();
-                    playerImage.sprite = preDialogue[index].getCharacterSprite();
-
-                    if (preDialogue[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-                else if (state == 1)
-                {
-                    npcNameText.SetText(afterPreDialogue[index].getCharacterName());
-                    playerNameText.SetText(afterPreDialogue[index].getCharacterName());
-                    npcImage.sprite = afterPreDialogue[index].getCharacterSprite();
-                    playerImage.sprite = afterPreDialogue[index].getCharacterSprite();
-
-                    if (afterPreDialogue[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else if (afterPreDialogue[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-                else if (state == 2)
-                {
-                    npcNameText.SetText(postDialogue[index].getCharacterName());
-                    playerNameText.SetText(postDialogue[index].getCharacterName());
-                    npcImage.sprite = postDialogue[index].getCharacterSprite();
-                    playerImage.sprite = postDialogue[index].getCharacterSprite();
-
-                    if (postDialogue[index].characterType == DialogType.CharacterType.player)
-                    {
-                        playerName.SetActive(true);
-                        playerImg.SetActive(true);
-                    }
-                    else if (postDialogue[index].characterType == DialogType.CharacterType.npc)
-                    {
-                        npcName.SetActive(true);
-                        npcImg.SetActive(true);
-                    }
-                }
-
-                StartCoroutine(Typing());
+                speechGrid.SetActive(true);
+            }
+            else
+            {
+                speechGrid.SetActive(false);
             }
 
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                talking = true;
+                shopCustomer.DisableMovement();
+
+                if (!dialoguePanel.activeInHierarchy)
+                {
+                    index = 0;
+                    dialogueText.text = "";
+                    dialoguePanel.SetActive(true);
+
+                    if (state == 0)
+                    {
+                        npcNameText.SetText(preDialogue[index].getCharacterName());
+                        playerNameText.SetText(preDialogue[index].getCharacterName());
+                        npcImage.sprite = preDialogue[index].getCharacterSprite();
+                        playerImage.sprite = preDialogue[index].getCharacterSprite();
+
+                        if (preDialogue[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+                    else if (state == 1)
+                    {
+                        npcNameText.SetText(afterPreDialogue[index].getCharacterName());
+                        playerNameText.SetText(afterPreDialogue[index].getCharacterName());
+                        npcImage.sprite = afterPreDialogue[index].getCharacterSprite();
+                        playerImage.sprite = afterPreDialogue[index].getCharacterSprite();
+
+                        if (afterPreDialogue[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (afterPreDialogue[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+                    else if (state == 2)
+                    {
+                        npcNameText.SetText(postDialogue[index].getCharacterName());
+                        playerNameText.SetText(postDialogue[index].getCharacterName());
+                        npcImage.sprite = postDialogue[index].getCharacterSprite();
+                        playerImage.sprite = postDialogue[index].getCharacterSprite();
+
+                        if (postDialogue[index].characterType == DialogType.CharacterType.player)
+                        {
+                            playerName.SetActive(true);
+                            playerImg.SetActive(true);
+                        }
+                        else if (postDialogue[index].characterType == DialogType.CharacterType.npc)
+                        {
+                            npcName.SetActive(true);
+                            npcImg.SetActive(true);
+                        }
+                    }
+
+                    StartCoroutine(Typing());
+                }
+            }
         }
+        else
+        {
+            speechGrid.SetActive(false);
+        }
+
         if (state == 0)
         {
             if (dialogueText.text == preDialogue[index].getText())
@@ -163,6 +183,7 @@ public class BeachNPC : MonoBehaviour
         npcName.SetActive(false);
         npcImg.SetActive(false);
 
+        talking = false;
         shopCustomer.EnableMovement();
 
         if (state == 0)
