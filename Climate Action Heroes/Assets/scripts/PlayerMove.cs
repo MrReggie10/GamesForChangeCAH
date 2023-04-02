@@ -295,4 +295,16 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         canMove = true;
         moveSpeed = 5;
     }
+
+    public void DisableMovement()
+    {
+        canMove = false;
+        moveSpeed = 0;
+    }
+
+    public void EnableMovement()
+    {
+        canMove = true;
+        moveSpeed = 5;
+    }
 }
