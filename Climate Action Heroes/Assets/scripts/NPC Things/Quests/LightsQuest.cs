@@ -30,6 +30,8 @@ public class LightsQuest : QuestType
         }
 
         started = true;
+
+        QuestPropController.questPropController.SetQuestActive();
     }
 
     void Update()
