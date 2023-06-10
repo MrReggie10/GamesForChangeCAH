@@ -107,6 +107,7 @@ public class Item
             case ItemType.copper_sheet:     return ItemAssets.Instance.copperSheet;
             case ItemType.iron_sheet:       return ItemAssets.Instance.ironSheet;
             case ItemType.glass_bottle:     return ItemAssets.Instance.glassBottle;
+            case ItemType.cardboard:        return ItemAssets.Instance.cardboard;
 
             case ItemType.wind_rotor:       return ItemAssets.Instance.windRotor;
             case ItemType.water_turbine:    return ItemAssets.Instance.waterTurbine;
@@ -143,6 +144,7 @@ public class Item
             case ItemType.copper_sheet: return ItemAssets.Instance.copperSheet;
             case ItemType.iron_sheet: return ItemAssets.Instance.ironSheet;
             case ItemType.glass_bottle: return ItemAssets.Instance.glassBottle;
+            case ItemType.cardboard: return ItemAssets.Instance.cardboard;
 
             case ItemType.wind_rotor: return ItemAssets.Instance.windRotor;
             case ItemType.water_turbine: return ItemAssets.Instance.waterTurbine;

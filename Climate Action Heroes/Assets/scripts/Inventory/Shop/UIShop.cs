@@ -99,10 +99,20 @@ public class UIShop : MonoBehaviour
         {
             if (shopCustomer.TrySpendCashAmount(Item.getBuy(itemType)))
             {
+                FindObjectOfType<AudioManager>().PlaySound("buy");
+
                 shopCustomer.BoughtItem(itemType);
             }
+            else
+            {
+                FindObjectOfType<AudioManager>().PlaySound("error");
+            }
         }
-        
+        else
+        {
+            FindObjectOfType<AudioManager>().PlaySound("error");
+        }
+
     }
 
     public void Show(IShopCustomer shopCustomer)

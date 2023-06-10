@@ -29,6 +29,8 @@ public class PowerQuest : QuestType
             light.SetActive(true);
         }
 
+        PowerlinePropController.powerlinePropController.SetQuestActive();
+
         started = true;
     }
 

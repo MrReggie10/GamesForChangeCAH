@@ -60,6 +60,8 @@ public class BuildingTrigger : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    FindObjectOfType<AudioManager>().PlaySound("trashPickup");
+
                     switch (buildingType)
                     {
                         default:

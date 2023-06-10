@@ -19,6 +19,14 @@ public class MayorQuest : QuestType
         mayorQuest = this;
     }
 
+    private void Update()
+    {
+        if (npc.GetComponent<QuestNPC>().GetState() >= 3)
+        {
+            EndQuest();
+        }
+    }
+
     public override void EndQuest()
     {
         started = false;
@@ -38,7 +46,7 @@ public class MayorQuest : QuestType
         this.uiPanel = uiPanel;
         StateManager.stateManager.SetState(3);
 
-        uiPanel.GetComponent<QuestUIprefab>().SetName("Get 10 people to vote for the public transportation bill");
+        uiPanel.GetComponent<QuestUIprefab>().SetName("Get 10 people to vote for the public transport proposition");
 
         started = true;
     }
@@ -46,7 +54,7 @@ public class MayorQuest : QuestType
     public override void UpdateProgress()
     {
         QuestManager.questManager.SetQuestProgress(uiPanel, votes, totalVotesNeeded);
-        if (votes == totalVotesNeeded)
+        if (votes >= totalVotesNeeded)
         {
             npc.GetComponent<QuestNPC>().SetState(2);
         }

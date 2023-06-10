@@ -216,7 +216,7 @@ public class QuestNPC : MonoBehaviour
 
         if (state == 2)
         {
-            //delete the ui
+            FindObjectOfType<AudioManager>().PlaySound("win");
         }
 
         if (state == 0 || state == 2)

@@ -13,6 +13,7 @@ public class ShopAlphaController : MonoBehaviour
 
     [SerializeField] private Tilemap top;
     [SerializeField] private Tilemap low;
+    [SerializeField] private Tilemap power;
 
     private bool inShop;
 
@@ -26,6 +27,10 @@ public class ShopAlphaController : MonoBehaviour
                 tempColor.a = 1 - (player.transform.position.y - yLow);
                 top.GetComponent<Tilemap>().color = tempColor;
                 low.GetComponent<Tilemap>().color = tempColor;
+                if(power != null)
+                {
+                    power.GetComponent<Tilemap>().color = tempColor;
+                }
             }
             else if (player.transform.position.y > yLow + 1)
             {
@@ -33,6 +38,10 @@ public class ShopAlphaController : MonoBehaviour
                 tempColor.a = 0;
                 top.GetComponent<Tilemap>().color = tempColor;
                 low.GetComponent<Tilemap>().color = tempColor;
+                if (power != null)
+                {
+                    power.GetComponent<Tilemap>().color = tempColor;
+                }
                 inShop = true;
             }
             else
@@ -41,6 +50,10 @@ public class ShopAlphaController : MonoBehaviour
                 tempColor.a = 1;
                 top.GetComponent<Tilemap>().color = tempColor;
                 low.GetComponent<Tilemap>().color = tempColor;
+                if (power != null)
+                {
+                    power.GetComponent<Tilemap>().color = tempColor;
+                }
                 inShop = false;
             }
         }
@@ -50,6 +63,10 @@ public class ShopAlphaController : MonoBehaviour
             tempColor.a = 0;
             top.GetComponent<Tilemap>().color = tempColor;
             low.GetComponent<Tilemap>().color = tempColor;
+            if (power != null)
+            {
+                power.GetComponent<Tilemap>().color = tempColor;
+            }
         }
         else
         {
@@ -57,6 +74,10 @@ public class ShopAlphaController : MonoBehaviour
             tempColor.a = 1;
             top.GetComponent<Tilemap>().color = tempColor;
             low.GetComponent<Tilemap>().color = tempColor;
+            if (power != null)
+            {
+                power.GetComponent<Tilemap>().color = tempColor;
+            }
         }
     }
 }

@@ -109,10 +109,16 @@ public class UI_Crafting : MonoBehaviour
         if(shopCustomer.TryFitWeight(Item.getWeight(type)-ingredientsWeight))
         {
         */
-            if (shopCustomer.TryUseItems(type))
-            {
-                shopCustomer.CraftItem(type);
-            }
+        if (shopCustomer.TryUseItems(type))
+        {
+            FindObjectOfType<AudioManager>().PlaySound("craft");
+
+            shopCustomer.CraftItem(type);
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().PlaySound("error");
+        }
         //}
         
     }

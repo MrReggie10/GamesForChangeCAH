@@ -58,10 +58,10 @@ public class Bikes
         switch (bikeType)
         {
             default:
-            case BikeType.blue_bike:    return ItemAssets.Instance.cigarette;
-            case BikeType.red_bike:     return ItemAssets.Instance.glassBottle;
-            case BikeType.electric_bike:return ItemAssets.Instance.plasticBag;
-            case BikeType.rainbow_bike: return ItemAssets.Instance.plasticBottle;
+            case BikeType.blue_bike:    return ItemAssets.Instance.blueBike;
+            case BikeType.red_bike:     return ItemAssets.Instance.redBike;
+            case BikeType.electric_bike:return ItemAssets.Instance.electricBike;
+            case BikeType.rainbow_bike: return ItemAssets.Instance.rainbowBike;
         }
     }
 
@@ -98,8 +98,8 @@ public class Bikes
             default:
             case BikeType.blue_bike:    return 20f;
             case BikeType.red_bike:     return 40f;
-            case BikeType.electric_bike:return 100f;
-            case BikeType.rainbow_bike: return 250f;
+            case BikeType.electric_bike:return 80f;
+            case BikeType.rainbow_bike: return 150f;
         }
     }
 
@@ -110,8 +110,8 @@ public class Bikes
             default:
             case BikeType.blue_bike:    return 20f;
             case BikeType.red_bike:     return 40f;
-            case BikeType.electric_bike:return 100f;
-            case BikeType.rainbow_bike: return 250f;
+            case BikeType.electric_bike:return 80f;
+            case BikeType.rainbow_bike: return 150f;
         }
     }
 
@@ -123,7 +123,7 @@ public class Bikes
             case BikeType.blue_bike:    return 7f;
             case BikeType.red_bike:     return 10f;
             case BikeType.electric_bike:return 13f;
-            case BikeType.rainbow_bike: return 20f;
+            case BikeType.rainbow_bike: return 16f;
         }
     }
 
@@ -135,7 +135,7 @@ public class Bikes
             case BikeType.blue_bike:    return 7f;
             case BikeType.red_bike:     return 10f;
             case BikeType.electric_bike:return 13f;
-            case BikeType.rainbow_bike: return 20f;
+            case BikeType.rainbow_bike: return 16f;
         }
     }
 

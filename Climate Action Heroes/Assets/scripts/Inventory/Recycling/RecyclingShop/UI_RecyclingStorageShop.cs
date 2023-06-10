@@ -31,6 +31,11 @@ public class UI_RecyclingStorageShop : MonoBehaviour
         purchase_button = shop_container.Find("Upgrade_button");
         cost_text = purchase_button.Find("Cost_text");
 
+        Invoke("DelayedAwake", 0.01f);
+    }
+
+    private void DelayedAwake()
+    {
         manager.SetMaxWeight(storageUpgrades[counter]);
         cost_text.GetComponent<TextMeshProUGUI>().SetText(cost[counter].ToString());
         count_text.GetComponent<TextMeshProUGUI>().SetText(storageUpgrades[counter].ToString());
@@ -52,6 +57,8 @@ public class UI_RecyclingStorageShop : MonoBehaviour
     {
         if(shopCustomer.TrySpendCashAmount(cost[counter]))
         {
+            FindObjectOfType<AudioManager>().PlaySound("buy");
+
             counter++;
 
             manager.SetMaxWeight(storageUpgrades[counter]);
@@ -66,6 +73,10 @@ public class UI_RecyclingStorageShop : MonoBehaviour
             {
                 cost_text.GetComponent<TextMeshProUGUI>().SetText(cost[counter].ToString());
             }
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().PlaySound("error");
         }
     }
 

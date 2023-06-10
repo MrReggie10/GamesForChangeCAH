@@ -98,7 +98,13 @@ public class UI_BikeShop : MonoBehaviour
     {
         if (shopCustomer.TrySpendCashAmount(Bikes.GetCost(bikeType)))
         {
+            FindObjectOfType<AudioManager>().PlaySound("buy");
+
             shopCustomer.EquipBike(bikeType);
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().PlaySound("error");
         }
     }
 

@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LetterMovement : MonoBehaviour
 {
     [SerializeField] private List<GameObject> letters;
     [SerializeField] private float funcConst;
 
+    private float yCenter;
+
     // Start is called before the first frame update
     void Start()
     {
         foreach (GameObject letter in letters)
         {
+            yCenter = letter.GetComponent<RectTransform>().position.y - 50;
             letter.SetActive(false);
         }
             StartCoroutine(StartOscillation());
@@ -32,7 +36,7 @@ public class LetterMovement : MonoBehaviour
     {
         foreach(GameObject letter in letters)
         {
-            letter.GetComponent<Rigidbody2D>().gravityScale = Mathf.Abs(letter.transform.position.y-640) * (letter.transform.position.y - 640) * funcConst;
+            letter.GetComponent<Rigidbody2D>().gravityScale = Mathf.Abs(letter.transform.position.y-yCenter) * (letter.transform.position.y - yCenter) * funcConst;
         }
     }
 }

@@ -31,7 +31,6 @@ public class UI_RecyclingTruckShop : MonoBehaviour
         purchase_button = shop_container.Find("Upgrade_button");
         cost_text = purchase_button.Find("Cost_text");
 
-        manager.SetMaxWeight(truckUpgrades[counter]);
         cost_text.GetComponent<TextMeshProUGUI>().SetText(cost[counter].ToString());
         count_text.GetComponent<TextMeshProUGUI>().SetText(truckUpgrades[counter].ToString());
 
@@ -52,6 +51,8 @@ public class UI_RecyclingTruckShop : MonoBehaviour
     {
         if (shopCustomer.TrySpendCashAmount(cost[counter]))
         {
+            FindObjectOfType<AudioManager>().PlaySound("buy");
+
             counter++;
 
             manager.SetTrucks(truckUpgrades[counter]);
@@ -66,6 +67,10 @@ public class UI_RecyclingTruckShop : MonoBehaviour
             {
                 cost_text.GetComponent<TextMeshProUGUI>().SetText(cost[counter].ToString());
             }
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().PlaySound("error");
         }
     }
 

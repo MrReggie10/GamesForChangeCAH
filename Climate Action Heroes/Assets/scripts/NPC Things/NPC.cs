@@ -36,6 +36,8 @@ public class NPC : MonoBehaviour
     [SerializeField] private bool playerIsClose;
     [SerializeField] private bool endLineEarly = false;
 
+    [SerializeField] private bool isScientist;
+
     private IShopCustomer shopCustomer;
 
     // Update is called once per frame
@@ -287,7 +289,7 @@ public class NPC : MonoBehaviour
         talking = false;
         shopCustomer.EnableMovement();
 
-        if(StateManager.stateManager.GetState() == 3)
+        if(StateManager.stateManager.GetState() == 3 && !talkedAboutMayor && !isScientist)
         {
             talkedAboutMayor = true;
             MayorQuest.mayorQuest.AddVote();
@@ -644,7 +646,6 @@ public class NPC : MonoBehaviour
         {
             StopCoroutine(Typing());
             playerIsClose = false;
-            zeroText();
         }
     }
 }

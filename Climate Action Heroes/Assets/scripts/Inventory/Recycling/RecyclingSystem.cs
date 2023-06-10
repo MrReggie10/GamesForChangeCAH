@@ -18,7 +18,6 @@ public class RecyclingSystem
 
     public void addItem(Item item)
     {
-        Debug.Log("this should run twice");
         if (item.isStackable())
         {
             bool itemAlreadyInInventory = false;

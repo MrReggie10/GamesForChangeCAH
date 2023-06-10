@@ -95,14 +95,26 @@ public class UI_RecyclingStorage : MonoBehaviour
         {
             if(shopCustomer.TryFitWeight(storage.getStorageList()[i].getWeight() * storage.getStorageList()[i].amount))
             {
+                FindObjectOfType<AudioManager>().PlaySound("buttonPress");
+
                 MoveItems(i);
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().PlaySound("error");
             }
         }
         else
         {
             if(shopCustomer.TryFitWeight(storage.getStorageList()[i].getWeight()))
             {
+                FindObjectOfType<AudioManager>().PlaySound("buttonPress");
+
                 MoveItem(i);
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().PlaySound("error");
             }
         }
     }

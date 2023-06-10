@@ -13,18 +13,18 @@ public class InventoryTrigger : MonoBehaviour
     {
         if (!shopOpen)
         {
+            shopOpen = true;
             uiInventory.Show(shopCustomer);
             fadeAnimator.SetBool("PauseEnabled", true);
 
-            shopOpen = true;
             shopCustomer.DisableMovement();
         }
         else
         {
+            shopOpen = false;
             uiInventory.Hide();
             fadeAnimator.SetBool("PauseEnabled", false);
 
-            shopOpen = false;
             shopCustomer.EnableMovement();
         }
     }

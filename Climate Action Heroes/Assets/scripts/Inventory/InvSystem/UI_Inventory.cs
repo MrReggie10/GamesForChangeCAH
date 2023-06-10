@@ -92,6 +92,8 @@ public class UI_Inventory : MonoBehaviour
 
     public void MarkForSale(int i)
     {
+        FindObjectOfType<AudioManager>().PlaySound("buttonPress");
+
         uiShopSell.setItemForSale(i);
     }
 

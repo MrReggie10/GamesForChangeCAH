@@ -42,4 +42,9 @@ public class ItemAssets : MonoBehaviour
     public Sprite solarPanel_lvl_1;
     public Sprite solarPanel_lvl_2;
     public Sprite solarPanel_lvl_3;
+
+    public Sprite blueBike;
+    public Sprite redBike;
+    public Sprite electricBike;
+    public Sprite rainbowBike;
 }

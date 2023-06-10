@@ -20,7 +20,7 @@ public class BagsQuest : QuestType
         this.npc = npc;
 
         this.uiPanel = uiPanel;
-        uiPanel.GetComponent<QuestUIprefab>().SetName("Give 10 plastic bags to the woman");
+        uiPanel.GetComponent<QuestUIprefab>().SetName("Give 10 plastic bags to Haley");
 
         this.shopCustomer = shopCustomer;
 

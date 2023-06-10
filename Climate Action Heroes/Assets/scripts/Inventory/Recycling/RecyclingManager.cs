@@ -49,7 +49,9 @@ public class RecyclingManager : MonoBehaviour
 
     private void AddItem()
     {
-        if(Random.Range(0, oneOutOfThisIsLegendary) == 1)
+        int tempRand = Random.Range(0, oneOutOfThisIsLegendary);
+
+        if (tempRand == 1)
         {
             int i = Random.Range(0, legItems.Count - 1);
             if (legItems[i].getWeight() <= storage.getMaxWeight() - storage.getCurrentWeight())
@@ -71,6 +73,7 @@ public class RecyclingManager : MonoBehaviour
     public void SetMaxWeight(float weight)
     {
         maxWeight = weight;
+        storage.setMaxWeight(weight);
     }
 
     public void SetTrucks(int trucks)

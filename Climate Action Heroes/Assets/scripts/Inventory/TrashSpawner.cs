@@ -44,7 +44,7 @@ public class TrashSpawner : MonoBehaviour
     void SpawnPieceOfTrash()
     {
         float rand1 = Random.Range(0f, 1f);
-        if(rand1 < 0.95)
+        if(rand1 < 0.90)
         {
             int rand2 = Random.Range(0, commonTrash.Length);
             ItemWorld.SpawnItemWorld(new Vector3(Random.Range(-45f, -35f), Random.Range(-25f, 25f)), commonTrash[rand2]);

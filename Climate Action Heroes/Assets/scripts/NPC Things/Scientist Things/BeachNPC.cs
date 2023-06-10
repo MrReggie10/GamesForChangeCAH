@@ -193,7 +193,7 @@ public class BeachNPC : MonoBehaviour
 
         if (state == 2)
         {
-            //delete the ui
+            FindObjectOfType<AudioManager>().PlaySound("win");
         }
 
         if (state == 0 || state == 2)
@@ -260,7 +260,7 @@ public class BeachNPC : MonoBehaviour
             {
                 questMenu.GetComponentInChildren<Canvas>().enabled = true;
             }
-            else if(index == 13)
+            else if(index == 15)
             {
                 progressionMenu.GetComponentInChildren<Canvas>().enabled = true;
             }

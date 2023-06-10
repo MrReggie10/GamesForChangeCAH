@@ -46,8 +46,20 @@ public class UIShopSell : MonoBehaviour
         sell1.onClick.RemoveAllListeners();
         sellAll.onClick.RemoveAllListeners();
 
-        sell1.onClick.AddListener(delegate { shopCustomer.Remove1ItemPlayer(itemIndex); });
-        sellAll.onClick.AddListener(delegate { shopCustomer.RemoveAllItemPlayer(itemIndex); });
+        sell1.onClick.AddListener(delegate { removeOneItem(itemIndex); });
+        sellAll.onClick.AddListener(delegate { removeAllItem(itemIndex); });
+    }
+
+    private void removeOneItem(int itemIndex)
+    {
+        FindObjectOfType<AudioManager>().PlaySound("buttonPress");
+        shopCustomer.Remove1ItemPlayer(itemIndex);
+    }
+
+    private void removeAllItem(int itemIndex)
+    {
+        FindObjectOfType<AudioManager>().PlaySound("buttonPress");
+        shopCustomer.RemoveAllItemPlayer(itemIndex);
     }
 
     public void Show(IShopCustomer shopCustomer)
