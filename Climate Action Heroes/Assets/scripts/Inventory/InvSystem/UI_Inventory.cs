@@ -8,9 +8,14 @@ using TMPro;
 public class UI_Inventory : MonoBehaviour
 {
     private InventorySystem inventory;
-    private Transform inventory_BG;
-    private Transform itemSlotContainer;
-    private Transform itemSlotTemplate;
+
+    [Header("Container Fields")]
+
+    [SerializeField] private Transform inventory_BG;
+    [SerializeField] private Transform itemSlotContainer;
+    [SerializeField] private Transform itemSlotTemplate;
+
+    [Header("Other Fields")]
 
     [SerializeField] private UI_WeightCounter weightCounter;
     [SerializeField] private UIShopSell uiShopSell;
@@ -22,9 +27,7 @@ public class UI_Inventory : MonoBehaviour
 
     public void Awake()
     {
-        inventory_BG = transform.Find("Inventory_BG");
-        itemSlotContainer = inventory_BG.Find("ItemSlotContainer");
-        itemSlotTemplate = itemSlotContainer.Find("ItemSlotTemplate");
+        
     }
 
     private void Start()

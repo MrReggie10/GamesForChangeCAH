@@ -5,24 +5,23 @@ using UnityEngine.UI;
 
 public class UIShopSell : MonoBehaviour
 {
+    [Header("Container Fields")]
+
+    [SerializeField] private Transform sellBG;
+    [SerializeField] private Button sell1;
+    [SerializeField] private Button sellAll;
 
     private IShopCustomer shopCustomer;
 
-    private Transform sellBG;
-    private Button sell1;
-    private Button sellAll;
+    [Header("Other Fields")]
 
-    private bool animationPlaying = false;
     [SerializeField] private Animator BGAnimator;
+    private bool animationPlaying = false;
 
     private int itemIndex;
 
     private void Awake()
     {
-        sellBG = transform.Find("Sell_BG");
-        sell1 = sellBG.Find("Sell1_Button").GetComponent<Button>();
-        sellAll = sellBG.Find("Sell2_Button").GetComponent<Button>();
-
         sell1.interactable = false;
         sellAll.interactable = false;
     }

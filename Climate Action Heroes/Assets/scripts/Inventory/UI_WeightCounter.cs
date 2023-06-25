@@ -7,15 +7,15 @@ using TMPro;
 
 public class UI_WeightCounter : MonoBehaviour
 {
-    private Transform weightNumber_Container;
-    private Transform weightTop_text;
-    private Transform weightBottom_text;
+    [Header("Container Fields")]
+
+    [SerializeField] private Transform weightNumber_Container;
+    [SerializeField] private Transform weightTop_text;
+    [SerializeField] private Transform weightBottom_text;
 
     void Awake()
     {
-        weightNumber_Container = transform.Find("WeightNumber_Container");
-        weightTop_text = weightNumber_Container.Find("WeightTop_text");
-        weightBottom_text = weightNumber_Container.Find("WeightBottom_text");
+        
     }
 
     public void Refresh(InventorySystem inventory)

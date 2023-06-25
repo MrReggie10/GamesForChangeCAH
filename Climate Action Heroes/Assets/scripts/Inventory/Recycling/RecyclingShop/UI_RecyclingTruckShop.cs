@@ -6,11 +6,15 @@ using TMPro;
 
 public class UI_RecyclingTruckShop : MonoBehaviour
 {
-    private Transform shop_BG;
-    private Transform shop_container;
-    private Transform count_text;
-    private Transform purchase_button;
-    private Transform cost_text;
+    [Header("Container Fields")]
+
+    [SerializeField] private Transform shop_BG;
+    [SerializeField] private Transform shop_container;
+    [SerializeField] private Transform count_text;
+    [SerializeField] private Transform purchase_button;
+    [SerializeField] private Transform cost_text;
+
+    [Header("Other Fields")]
 
     [SerializeField] private RecyclingManager manager;
 

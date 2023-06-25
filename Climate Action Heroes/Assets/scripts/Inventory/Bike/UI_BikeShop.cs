@@ -7,12 +7,16 @@ using TMPro;
 
 public class UI_BikeShop : MonoBehaviour
 {
+    [Header("Container Fields")]
+
+    [SerializeField] private Transform bg;
+    [SerializeField] private Transform container;
+    [SerializeField] private Transform button;
+
+    [Header("Other Fields")]
+
     [SerializeField] private List<Bikes> bikeArray;
     private List<GameObject> buttonArray = new List<GameObject>();
-
-    private Transform bg;
-    private Transform container;
-    private Transform button;
 
     private bool animationPlaying = false;
     [SerializeField] private Animator BGAnimator;
@@ -21,9 +25,6 @@ public class UI_BikeShop : MonoBehaviour
 
     private void Awake()
     {
-        bg = transform.Find("BikeShop_BG");
-        container = bg.Find("BikeShop_Container");
-        button = container.transform.Find("BikeShop_Button");
         button.gameObject.SetActive(false);
 
         Invoke("DelayedAwake", 0.01f);

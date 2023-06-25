@@ -7,22 +7,23 @@ using System;
 
 public class UIShop : MonoBehaviour
 {
+    [Header("Container Fields")]
+
+    [SerializeField] private Transform shopBG;
+    [SerializeField] private Transform container;
+    [SerializeField] private GameObject button;
+    private IShopCustomer shopCustomer;
+
+    [Header("Other Fields")]
+
     [SerializeField] private Item[] itemArray;
     private List<GameObject> buttonArray = new List<GameObject>();
-
-    private Transform shopBG;
-    private Transform container;
-    private GameObject button;
-    private IShopCustomer shopCustomer;
 
     private bool animationPlaying = false;
     [SerializeField] private Animator BGAnimator;
 
     private void Awake()
     {
-        shopBG = transform.Find("ShopMenuBuy_BG");
-        container = shopBG.transform.Find("ShopMenuBuy_Container");
-        button = container.transform.Find("ShopMenuBuy_Button").gameObject;
         button.gameObject.SetActive(false);
 
         Invoke("DelayedAwake", 0.01f);

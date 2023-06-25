@@ -6,11 +6,15 @@ using TMPro;
 
 public class UI_RecyclingStorageShop : MonoBehaviour
 {
-    private Transform shop_BG;
-    private Transform shop_container;
-    private Transform count_text;
-    private Transform purchase_button;
-    private Transform cost_text;
+    [Header("Container Fields")]
+
+    [SerializeField] private Transform shop_BG;
+    [SerializeField] private Transform shop_container;
+    [SerializeField] private Transform count_text;
+    [SerializeField] private Transform purchase_button;
+    [SerializeField] private Transform cost_text;
+
+    [Header("Other Fields")]
 
     [SerializeField] private RecyclingManager manager;
 
@@ -25,12 +29,6 @@ public class UI_RecyclingStorageShop : MonoBehaviour
 
     private void Awake()
     {
-        shop_BG = transform.Find("RecyclingStorageShop_BG");
-        shop_container = shop_BG.Find("RecyclingStorageShop_Container");
-        count_text = shop_container.Find("Count_text");
-        purchase_button = shop_container.Find("Upgrade_button");
-        cost_text = purchase_button.Find("Cost_text");
-
         Invoke("DelayedAwake", 0.01f);
     }
 

@@ -7,24 +7,23 @@ using TMPro;
 
 public class UI_RecyclingStorage : MonoBehaviour
 {
+    [Header("Container Fields")]
+
+    [SerializeField] private Transform storage_BG;
+    [SerializeField] private Transform itemSlotContainer;
+    [SerializeField] private Transform itemSlotTemplate;
     private RecyclingSystem storage;
-    private Transform storage_BG;
-    private Transform itemSlotContainer;
-    private Transform itemSlotTemplate;
 
-    private bool animationPlaying = false;
+    [Header("Other Fields")]
+
     [SerializeField] private Animator BGAnimator;
-
-    //[SerializeField] private UI_WeightCounter weightCounter;
-    //[SerializeField] private UIShopSell uiShopSell;
+    private bool animationPlaying = false;
 
     private IShopCustomer shopCustomer;
 
     public void Awake()
     {
-        storage_BG = transform.Find("RecyclingStorage_BG");
-        itemSlotContainer = storage_BG.Find("RecyclingStorage_Container");
-        itemSlotTemplate = itemSlotContainer.Find("ItemSlotTemplate");
+
     }
 
     private void Start()

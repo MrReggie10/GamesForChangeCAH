@@ -7,12 +7,16 @@ using TMPro;
 
 public class UI_Crafting : MonoBehaviour
 {
+    [Header("Container Fields")]
+
+    [SerializeField] private Transform bg;
+    [SerializeField] private Transform container;
+    [SerializeField] private Transform button;
+
+    [Header("Other Fields")]
+
     [SerializeField] private Item[] itemArray;
     private List<GameObject> buttonArray = new List<GameObject>();
-
-    private Transform bg;
-    private Transform container;
-    private Transform button;
 
     private bool animationPlaying = false;
     [SerializeField] private Animator BGAnimator;
@@ -21,9 +25,6 @@ public class UI_Crafting : MonoBehaviour
 
     private void Awake()
     {
-        bg = transform.Find("Crafting_BG");
-        container = bg.Find("CraftingMenu_Container");
-        button = container.transform.Find("CraftingMenu_Button");
         button.gameObject.SetActive(false);
 
         Invoke("DelayedAwake", 0.01f);

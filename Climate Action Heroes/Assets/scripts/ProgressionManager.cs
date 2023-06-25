@@ -62,34 +62,12 @@ public class ProgressionManager : MonoBehaviour
             ChangePhase();
         }
 
+        //Colors
         //255, 255, 255
         //207, 221, 174
         //48, 34, 81
-        Color32 tempColor = new Color32(207, 221, 174, 255);
-        if (totalXP < 450)
-        {
-            tempColor = new Color32((byte)(207 + (((float)totalXP) / 450 * 48)), (byte)(221 + (((float)totalXP) / 450 * 34)), (byte)(174 + (((float)totalXP) / 450 * 81)), 255);
-        }
-        else
-        {
-            tempColor = new Color32(255, 255, 255, 255);
-        }
 
-        foreach (Tilemap tilemap in colorMaps)
-        {
-            if (tilemap != null)
-            {
-                tilemap.color = tempColor;
-            }
-        }
-
-        foreach (SpriteRenderer tilemap in colorSprites)
-        {
-            if(tilemap != null)
-            {
-                tilemap.color = tempColor;
-            }
-        }
+        
 
         if (mod4/4 != 0)
         {

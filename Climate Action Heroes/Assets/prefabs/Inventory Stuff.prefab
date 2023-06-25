@@ -617,6 +617,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18489c7a616d47839a62f59e50f7b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shop_BG: {fileID: 5989236310451991091}
+  shop_container: {fileID: 3771216559307540099}
+  count_text: {fileID: 5778538327030341584}
+  purchase_button: {fileID: 64730603721044705}
+  cost_text: {fileID: 2850491766548306069}
   manager: {fileID: 1375607940823683756}
   cost: 64000000c8000000f4010000e8030000c4090000881300001027000000000000
   storageUpgrades: 0a00000014000000280000004b0000006400000082000000a0000000c8000000
@@ -2735,6 +2740,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f84915b7bdb481ab480ae0e3cd32cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 6389309958993989172}
+  container: {fileID: 9010874930797472238}
+  button: {fileID: 7501326520977331080}
   itemArray:
   - itemType: 15
     amount: 1
@@ -3164,6 +3172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3f77822f5cd4e149f32e19297231b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sellBG: {fileID: 9176125337317438608}
+  sell1: {fileID: 1041725231335429498}
+  sellAll: {fileID: 6508525371489585878}
   BGAnimator: {fileID: 8009520673308243888}
 --- !u!1 &3307585668973701056
 GameObject:
@@ -4225,6 +4236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2492ea4ab624d8a89891f639e163bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weightNumber_Container: {fileID: 2319704845284996421}
+  weightTop_text: {fileID: 5227256924280663548}
+  weightBottom_text: {fileID: 811517500395697259}
 --- !u!1 &4362619268446539036
 GameObject:
   m_ObjectHideFlags: 0
@@ -4351,6 +4365,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e6f386602e1c4086832366bb28c63e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopBG: {fileID: 6964272873772771456}
+  container: {fileID: 7160564190974089266}
+  button: {fileID: 5253695200415775218}
   itemArray:
   - itemType: 1
     amount: 1
@@ -6013,6 +6030,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42289585a877544cc9604258f9e3400d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory_BG: {fileID: 5427508252059139865}
+  itemSlotContainer: {fileID: 5427508253041549290}
+  itemSlotTemplate: {fileID: 5427508252293607434}
   weightCounter: {fileID: 1854141236794764930}
   uiShopSell: {fileID: 4644571035687261463}
   BGAnimator: {fileID: 311708498769543000}
@@ -6411,6 +6431,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d83973bceeb41bb8388cca87e25646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storage_BG: {fileID: 7704291305381683274}
+  itemSlotContainer: {fileID: 1350542655073181687}
+  itemSlotTemplate: {fileID: 1079843443097867026}
   BGAnimator: {fileID: 1075681129173380500}
 --- !u!1 &5499883225000084006
 GameObject:
@@ -7418,6 +7441,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53aac6d992e3b4e9f886cde2c24fe9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shop_BG: {fileID: 683190691220585945}
+  shop_container: {fileID: 4090295504113692961}
+  count_text: {fileID: 6585800453611107359}
+  purchase_button: {fileID: 9059209539495875248}
+  cost_text: {fileID: 3338101435564583717}
   manager: {fileID: 1375607940823683756}
   cost: e8030000a00f00001027000000000000
   truckUpgrades: 01000000020000000300000004000000
@@ -8950,6 +8978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3577d354c4045129da7e82adb00ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bg: {fileID: 3287296384832180810}
+  container: {fileID: 3903447566700614467}
+  button: {fileID: 7565141438505458699}
   bikeArray:
   - bikeType: 0
   - bikeType: 1
