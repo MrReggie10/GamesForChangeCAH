@@ -110,6 +110,8 @@ public class UI_Inventory : MonoBehaviour
             BGAnimator.SetBool("MenuOpen", true);
 
             StartCoroutine("WaitForAnimation");
+
+            itemSlotContainer.position = new Vector3(itemSlotContainer.position.x, 0, 0);
         }
     }
 

@@ -134,6 +134,8 @@ public class UI_Crafting : MonoBehaviour
             BGAnimator.SetBool("MenuOpen", true);
 
             StartCoroutine("WaitForAnimation");
+
+            container.position = new Vector3(container.position.x, 0, 0);
         }
     }
 

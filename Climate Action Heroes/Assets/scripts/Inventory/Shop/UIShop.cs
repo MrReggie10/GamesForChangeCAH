@@ -126,6 +126,8 @@ public class UIShop : MonoBehaviour
             BGAnimator.SetBool("MenuOpen", true);
 
             StartCoroutine("WaitForAnimation");
+
+            container.position = new Vector3(container.position.x, 0, 0);
         }
     }
 
