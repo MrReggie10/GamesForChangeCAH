@@ -58,6 +58,7 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
     {
         DisableMovement();
         rb.velocity = new Vector2(-4, 0);
+        taxi.GetComponent<Rigidbody2D>().velocity = new Vector2(-4, 0);
 
         StartCoroutine(DriveTaxi());
     }
@@ -67,35 +68,27 @@ public class PlayerMove : MonoBehaviour, IShopCustomer
         yield return new WaitForSeconds(9);
 
         rb.velocity = new Vector2(0, 0);
-        taxi.GetComponent<SpriteRenderer>().sortingOrder = 6;
+        taxi.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        taxi.GetComponentInChildren<SpriteRenderer>().sortingOrder = 6;
 
         yield return new WaitForSeconds(1);
 
-        visual.GetComponent<SpriteRenderer>().enabled = true;
-
-        yield return new WaitForSeconds(1);
-
-        taxi.transform.localScale = new Vector3(1, 1, 1);
-        StartCoroutine(DriveAway());
+        visual.GetComponentInChildren<SpriteRenderer>().enabled = true;
 
         yield return new WaitForSeconds(2);
+
+        taxi.transform.localScale = new Vector3(-1, 1, 1);
+        taxi.GetComponent<Rigidbody2D>().velocity = new Vector2(4, 0);
+
+        yield return new WaitForSeconds(1);
 
         scientist.enabled = true;
 
         yield return new WaitForSeconds(3);
 
-        taxi.GetComponent<SpriteRenderer>().enabled = false;
+        taxi.GetComponentInChildren<SpriteRenderer>().enabled = false;
 
         isDriving = false;
-    }
-
-    IEnumerator DriveAway()
-    {
-        for(int i = 0; i < 600; i++)
-        {
-            taxi.transform.localPosition = new Vector3(taxi.transform.localPosition.x + 0.06f, taxi.transform.localPosition.y, 0);
-            yield return new WaitForSeconds(0.016f);
-        }
     }
 
     void Update()
