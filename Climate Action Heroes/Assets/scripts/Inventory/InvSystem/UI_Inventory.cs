@@ -111,7 +111,7 @@ public class UI_Inventory : MonoBehaviour
 
             StartCoroutine("WaitForAnimation");
 
-            itemSlotContainer.position = new Vector3(itemSlotContainer.position.x, 0, 0);
+            //itemSlotContainer.position = new Vector3(itemSlotContainer.position.x, 0, 0);
         }
     }
 

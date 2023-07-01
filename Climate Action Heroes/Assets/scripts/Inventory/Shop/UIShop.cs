@@ -127,7 +127,7 @@ public class UIShop : MonoBehaviour
 
             StartCoroutine("WaitForAnimation");
 
-            container.position = new Vector3(container.position.x, 0, 0);
+            //container.position = new Vector3(container.position.x, 0, 0);
         }
     }
 
